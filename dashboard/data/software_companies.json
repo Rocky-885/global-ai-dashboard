@@ -1,0 +1,95 @@
+{
+  "updated": "2026-09-25",
+  "companies": [
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "role": "云平台 + Copilot 全栈",
+      "strategy": "以 Azure AI + OpenAI 排他合作为核心，将 Copilot 嵌入 Office/Windows/Dynamics 全线，构建企业级 AI 工作流。",
+      "products": [
+        "Azure OpenAI Service（GPT/推理托管）",
+        "Microsoft 365 Copilot（企业生产力）",
+        "Copilot Studio（低代码 agent 编排）",
+        "Azure AI Foundry（模型编排与评测）"
+      ],
+      "capex": "FY2026 CapEx 预计超 800 亿美元，主要用于 AI 数据中心与 GPU 采购",
+      "latest": [
+        "与 OpenAI 深化算力与股权合作，锁定长期 GPU 供给",
+        "Copilot 企业渗透率持续提升，按席位订阅贡献 recurring 收入",
+        "自研 Maia AI 加速器进入 Azure 部署，降低外部依赖"
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet / Google",
+      "role": "自研模型 + 全栈云 + 终端",
+      "strategy": "Gemini 自研闭环（TPU 训练 + Vertex AI 推理 + 搜索/Workspace 落地），以成本与多模态能力争夺开发者。",
+      "products": [
+        "Gemini 4 系列（旗舰多模态，post-training 阶段）",
+        "Vertex AI（企业模型平台）",
+        "TPU v8「Ironwood」（自研训练/推理）",
+        "Gemini 3.8 Live Avatar（实时数字人）"
+      ],
+      "capex": "2026 年 CapEx 维持高位（约 700–750 亿美元区间），投向 TPU 与数据中心",
+      "latest": [
+        "Gemini 4 进入 post-training，强化推理与 agent 能力",
+        "TPU 集群规模化支撑自研与对外服务双线",
+        "搜索 AI Overviews 推动广告与订阅双增长"
+      ]
+    },
+    {
+      "ticker": "META",
+      "name": "Meta",
+      "role": "开源模型 + 广告/社交 AI",
+      "strategy": "以 Llama 开源生态建立开发者心智，并将 AI 用于广告推荐、内容理解与硬件（Ray-Ban/Quest）入口。",
+      "products": [
+        "Llama 4 系列（开源 MoE 旗舰）",
+        "Meta AI 助手（跨 App 入口）",
+        "广告推荐大模型",
+        "AI 眼镜 / Reality Labs"
+      ],
+      "capex": "2026 年 CapEx 约 600–700 亿美元，重投 AI 算力与数据中心",
+      "latest": [
+        "Muse 应用登顶 App Store，带动股价单日 +4.50%",
+        "Llama 开源权重推动第三方与内部 agent 应用",
+        "AI 推荐提升广告 ROI，支撑营收增长"
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "role": "云基础设施 + 模型托管",
+      "strategy": "以 AWS Trainium/Inferentia 自研芯片 + Bedrock 模型市场构建云 AI 入口，服务企业训练与推理。",
+      "products": [
+        "AWS Bedrock（多模型托管平台）",
+        "Trainium / Inferentia（自研训练/推理芯片）",
+        "Nova 自研基础模型",
+        "Amazon Q（企业 agent）"
+      ],
+      "capex": "2026 年 CapEx 预计超 900 亿美元，居科技巨头前列，重投 AWS AI 基础设施",
+      "latest": [
+        "Trainium 2/3 集群扩大，降低推理单位成本",
+        "Bedrock 接入多家前沿模型，做「模型超市」",
+        "当日无重大 AI 催化，股价基本持平"
+      ]
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "role": "端侧 AI + 生态变现",
+      "strategy": "以 Apple Intelligence 端侧 + 私有云计算为主，强调隐私；通过设备保有量变现订阅与硬件升级。",
+      "products": [
+        "Apple Intelligence（端侧/私有云）",
+        "端侧音频 tokenizer（压缩模型）",
+        "Siri 重构与设备内 agent",
+        "Foundation Models 框架（开发者）"
+      ],
+      "capex": "CapEx 相对克制（约 100–150 亿美元区间），偏重端侧与供应链协同",
+      "latest": [
+        "推进端侧音频 tokenizer 压缩，降低本地推理开销",
+        "Foundation Models 框架开放开发者端侧调用",
+        "AI 功能渐进落地，硬件换机周期缓慢受益"
+      ]
+    }
+  ]
+}

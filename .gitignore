@@ -1,0 +1,5 @@
+.workbuddy/
+ai_daily_dashboard_*.html
+ai_daily_dashboard_*.md
+*.log
+__pycache__/

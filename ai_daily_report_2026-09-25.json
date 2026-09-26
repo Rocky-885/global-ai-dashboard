@@ -1,0 +1,144 @@
+{
+  "report_date": "2026-09-25",
+  "update_time_utc": "2026-09-25 08:41:00",
+  "macro_market": [
+    {
+      "region": "美国",
+      "gdp_data": "2026Q2 GDP 环比+0.4%（OECD初值，2026-09发布；同比约+2.1%）",
+      "bond_yield_10y": "US10Y 5.207%，日涨+8.5bp（约+0.85%），创2007年来新高",
+      "main_index": "纳斯达克100 30,478.86 +0.03%；标普500 7,704.13 -0.02%"
+    },
+    {
+      "region": "日本",
+      "gdp_data": "2026Q2 GDP 环比+0.4%（OECD初值，2026-09发布；同比约+0.7%）",
+      "bond_yield_10y": "JP10Y 3.11%，日涨约+3.5bp，创1996年8月以来新高",
+      "main_index": "日经225 66,364.20 +1.30%"
+    },
+    {
+      "region": "欧元区/德国",
+      "gdp_data": "德国2026Q2 GDP 环比+0.3%（OECD；同比约+1.0%）；欧元区2026Q2 GDP 同比+0.5%（HSBC，2026-07）",
+      "bond_yield_10y": "DE10Y 3.60%，日涨+5bp，创17年新高",
+      "main_index": "欧洲斯托克50 6,272.50 -0.43%"
+    },
+    {
+      "region": "中国",
+      "gdp_data": "2026Q2 GDP 同比约+5.0%（国家统计局初值，2026-07发布；环比约+1.1%）；上半年累计同比约+5.2%",
+      "bond_yield_10y": "CN10Y 1.78%，日跌约-0.5bp，处于历史低位（稳增长降准降息预期压制）",
+      "main_index": "沪深300 4,180.00 +0.45%；上证指数约3,820点"
+    }
+  ],
+  "ai_companies": {
+    "hardware": [
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA",
+        "stock_performance": "224.58美元，-0.41%",
+        "past_24h_updates": [
+          "Vera Rubin平台在MLPerf推理基准首发，展现优异扩展效率与持续软件优化",
+          "AWS与NVIDIA扩大战略合作，将额外部署200万块GPU及下一代AI工厂基础设施",
+          "基于Vera Rubin的Groq 3 LPX推理芯片宣布全面量产，面向Agentic AI超高速token生成"
+        ]
+      },
+      {
+        "ticker": "TSM",
+        "name": "TSMC",
+        "stock_performance": "约446.30美元，+1.0%",
+        "past_24h_updates": [
+          "董事会批准约294亿美元新增资本开支，覆盖先进制程、先进封装（CoWoS）、成熟及特殊节点，应对AI需求",
+          "8月营收同比激增超53%创历史新高，2026年资本开支预估上调至520–560亿美元",
+          "与ASML联合推进12英寸光罩路线，目标2031年试产线、2033年High-NA EUV量产"
+        ]
+      },
+      {
+        "ticker": "ASML",
+        "name": "ASML",
+        "stock_performance": "1,713.41美元，-1.8%",
+        "past_24h_updates": [
+          "披露2026年欧洲未售出任何EUV/High-NA设备，欧洲营收占比前两季度归零，呼吁欧盟创造芯片需求",
+          "约4亿美元High-NA EUV获更多fab承诺：Intel已量产、Samsung 2028年导入DRAM、TSMC目标2030年先进制程"
+        ]
+      },
+      {
+        "ticker": "AVGO",
+        "name": "Broadcom",
+        "stock_performance": "约348.19美元，-1.9%",
+        "past_24h_updates": [
+          "FY2026 Q3 AI半导体收入达167.4亿美元，同比3.22倍、环比+54%（AI计算122亿+AI网络45亿）",
+          "与OpenAI合研的Jalapeño推理芯片冲刺2026年底部署，2027年计划部署1.3GW算力",
+          "CEO Hock Tan目标2028财年定制XPU+网络ASIC收入最高达2300亿美元；股价自6月高点回撤约32%"
+        ]
+      },
+      {
+        "ticker": "AMD",
+        "name": "AMD",
+        "stock_performance": "约629.26美元，+2.4%",
+        "past_24h_updates": [
+          "数据中心Q2收入67亿美元，同比+107%；MI350系列提前量产，Microsoft Azure部署Helios",
+          "与OpenAI/Meta/Oracle深化合作，获多年AI算力管线能见度；年初至今股价+122%，市值破1万亿美元",
+          "估值高企：动态市盈率约123倍，远高于NVDA(23x)/AVGO(21x)，执行容错空间窄"
+        ]
+      },
+      {
+        "ticker": "MU",
+        "name": "Micron",
+        "stock_performance": "约1,080.53美元，+0.81%",
+        "past_24h_updates": [
+          "FY2026 Q3营收414.6亿美元（同比+345.7%）、EPS 25.11美元、毛利率84.9%创纪录；盘后一度涨14.6%",
+          "HBM3E/HBM4已预订至2027年并延伸至2028年；FY2026 capex上调至约270亿美元，FY2027超450亿美元",
+          "计划2026年底HBM月产能翻倍至约10万片wafer/月追赶SK海力士与三星；Citi上调目标价至1,300美元"
+        ]
+      }
+    ],
+    "software_cloud": [
+      {
+        "ticker": "MSFT",
+        "name": "Microsoft",
+        "stock_performance": "497.93美元，-0.53%",
+        "past_24h_updates": [
+          "推出笔交互Ink Canvas等端侧AI能力，强化Copilot与办公场景融合",
+          "Microsoft Research证明k个通信智能体可媲美4k个独立智能体，多智能体协作进入工程化阶段",
+          "Azure持续部署AMD Helios AI算力，企业云AI生态扩大"
+        ]
+      },
+      {
+        "ticker": "GOOGL",
+        "name": "Alphabet/Google",
+        "stock_performance": "339.01美元，+1.20%",
+        "past_24h_updates": [
+          "Gemini 4已进入post-training，将'远早于年底'发布，终结11个月旗舰空窗",
+          "开源声明式Agent编排系统AX；Project Suncatcher拟将AI算力部署至太空（近连续太阳能供电）",
+          "Google Beam扩展至5个新国家；TPU开展太空测试，多智能体基础设施标准化竞争加速"
+        ]
+      },
+      {
+        "ticker": "META",
+        "name": "Meta",
+        "stock_performance": "777.59美元，+4.50%",
+        "past_24h_updates": [
+          "个人AI助手Muse上线13天登顶App Store，美国日活达ChatGPT同期约3倍，9/21单日市值增约2070亿美元",
+          "Connect 2026发布Muse VR眼镜(1,299美元,2027春)、Ray-Ban Audio(349美元)、Muse Charm钥匙扣",
+          "Muse被曝存在可窃取账号token的零日漏洞，AI助手安全边界受关注"
+        ]
+      },
+      {
+        "ticker": "AMZN",
+        "name": "Amazon",
+        "stock_performance": "249.38美元，+0.04%",
+        "past_24h_updates": [
+          "股价基本持平，24小时内无重大AI经营催化披露",
+          "市场持续聚焦AWS AI基础设施资本开支节奏与云业务利润率纪律"
+        ]
+      },
+      {
+        "ticker": "AAPL",
+        "name": "Apple",
+        "stock_performance": "335.92美元，-0.33%",
+        "past_24h_updates": [
+          "采用latent-space蒸馏压缩端侧神经音频编码器，降低常驻tokenizer与基础模型的DRAM争用，优化设备端听写功耗与延迟",
+          "持续强化端侧(on-device)AI布局，围绕系统级听写与多模态交互打磨体验"
+        ]
+      }
+    ]
+  },
+  "daily_executive_summary": "今日全球AI产业链主线为'算力军备竞赛'与'宏观利率逆风'的拉锯。硬件端景气强劲：台积电新增294亿美元资本开支、美光Q3营收同比+346%创纪录、博通AI收入同比翻3倍，HBM与定制芯片需求获业绩兑现；软件端Meta的Muse登顶App Store带动股价涨4.5%。宏观面全球债市风暴延续：美10Y破5.2%(2007来新高)、日10Y破3.1%(1996来新高)、德10Y达3.6%(17年高)，美联储威廉姆斯称年内再加息'合理'。核心风险：①长端利率上行挤压成长股估值；②中东/霍尔木兹地缘与油价推升通胀；③AMD等AI标的估值透支(123倍PE)。"
+}

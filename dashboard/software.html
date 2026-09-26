@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 软件与云服务 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="software">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item is-active" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container">
+
+  <div class="summary"><span class="badge">栏目说明</span>
+    <span>五大云与软件巨头是 AI 算力的最大需求方与变现方，其 CapEx 节奏与产品发布决定产业链景气度。</span></div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>☁️ AI 软件与云服务巨头</h2><span class="ln"></span></div>
+    <div class="sw-grid" id="swGrid"></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>💰 资本开支（CapEx）对比要点</h2><span class="ln"></span></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>公司</th><th>代码</th><th>2026 CapEx 量级</th><th>侧重点</th></tr></thead>
+        <tbody>
+          <tr><td>Microsoft</td><td>MSFT</td><td>约 800 亿美元+</td><td>Azure AI + OpenAI 排他合作 + Maia 自研芯片</td></tr>
+          <tr><td>Alphabet</td><td>GOOGL</td><td>约 700–750 亿美元</td><td>TPU 自研 + Gemini 全栈</td></tr>
+          <tr><td>Meta</td><td>META</td><td>约 600–700 亿美元</td><td>开源 Llama + 广告/社交 AI</td></tr>
+          <tr><td>Amazon</td><td>AMZN</td><td>约 900 亿美元+</td><td>AWS Trainium/Inferentia + Bedrock</td></tr>
+          <tr><td>Apple</td><td>AAPL</td><td>约 100–150 亿美元</td><td>端侧 Apple Intelligence，相对克制</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote">注：CapEx 为公开口径估算，随财报与指引调整；具体以各公司季报为准。</p>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

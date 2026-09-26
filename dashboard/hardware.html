@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 硬件产品与技术 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="hardware">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item is-active" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container">
+
+  <div class="summary"><span class="badge">栏目说明</span>
+    <span id="hwSummary">加载中…</span></div>
+
+  <div class="filter-bar" id="regionFilter">
+    <span class="flt-label">按地区筛选：</span>
+    <button class="flt active" data-r="all">🌐 全部</button>
+    <button class="flt" data-r="中国">🇨🇳 中国</button>
+    <button class="flt" data-r="美国">🇺🇸 美国</button>
+    <button class="flt" data-r="日本">🇯🇵 日本</button>
+    <button class="flt" data-r="韩国">🇰🇷 韩国</button>
+    <button class="flt" data-r="中国台湾">🇹🇼 中国台湾</button>
+    <button class="flt" data-r="荷兰">🇪🇺 荷兰</button>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🛠️ 硬件产品数据库（按品类）</h2><span class="ln"></span></div>
+    <div id="hwCategories"></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>⚖️ 关键加速器对比</h2><span class="ln"></span></div>
+    <div class="table-scroll"><div id="hwCompare"></div></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📡 互联与超节点技术趋势</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>机架级集成（Rack-scale）</b>：NVIDIA 以 NVLink 6 + NVSwitch 把整架 GPU 视为单一加速器；华为昇腾 960 以 4,096 卡超节点对标，阿里规划 50 万卡集群。</li>
+      <li><b>HBM4 量产爬坡</b>：带宽较 HBM3e 提升约 1.5–2×，是 Rubin/下一代加速器的内存底座；三强（SK 海力士/三星/美光）认证与产能是放量关键。</li>
+      <li><b>先进封装（CoWoS / SoIC / EMIB）</b>：2.5D+3D 集成决定 HBM 与逻辑芯片的互连密度，台积电 CoWoS 产能是 AI 芯片交付首要约束。</li>
+      <li><b>制程演进（N3 → N2）</b>：Rubin 采用 TSMC N3，后续世代迈向 N2；EUV（含 High-NA）与 EDA 智能体是扩产「卖铲人」。</li>
+      <li><b>能效比竞争</b>：每焦耳 agentic 吞吐成为核心指标（Rubin 宣称达 Blackwell 约 10×），液冷与功耗平滑（Intelligent Power Smoothing）成为标配。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🗓️ 产品发布时间线</h2><span class="ln"></span></div>
+    <div class="timeline" id="hwTimeline"></div>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

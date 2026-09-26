@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宏观市场 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="macro">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item is-active" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container">
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📊 主要经济体 GDP 增速</h2><span class="ln"></span></div>
+    <div class="table-scroll"><div id="gdpTable"></div></div>
+    <p class="footnote">注：若当日无新发布，GDP 采用上一次官方公布的标准值并标注来源/发布季度。</p>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📉 10 年期国债收益率（近一月）</h2><span class="ln"></span></div>
+    <div class="chart chart-lg" id="yieldChart"></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📈 核心股指（近一月）</h2><span class="ln"></span></div>
+    <div class="chart chart-lg" id="indexChart"></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🔢 指标一览</h2><span class="ln"></span></div>
+    <div class="table-scroll"><div id="macroTable"></div></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🏦 央行政策要点</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>美联储（Fed）</b>：官员表态年内再加息仍「合理」，美 10Y 收益率创 2007 年以来新高，高估值科技资产折现压力上升。</li>
+      <li><b>日本央行（BOJ）</b>：日 10Y 收益率升至 1996 年来高位，日元套息交易逆转风险需关注。</li>
+      <li><b>欧洲央行（ECB）</b>：德 10Y 收益率处 17 年高位，欧元区复苏偏弱，政策路径掣肘于增长与通胀的拉锯。</li>
+      <li><b>中国人民银行（PBOC）</b>：中 10Y 收益率处历史低位（约 1.78%），稳增长导向下降准降息预期持续，与美/日/欧形成"东松西紧"的利率分化；人民币与北向资金流向是 A 股 AI 板块的外部变量。</li>
+      <li><b>对 AI 链条含义</b>：利率逆风抬升 CapEx 融资成本与估值分母，与「算力军备竞赛」的景气主线形成拉锯，是组合的主要风险面；中国宽松则支撑本土算力与半导体国产化估值。</li>
+    </ul>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

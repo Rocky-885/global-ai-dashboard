@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球 AI 产业链 · 宏观监测终端</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home" class="home-tech">
+
+<header class="topbar">
+  <div class="brand">⬡ GLOBAL-AI<b>MACRO TERMINAL</b></div>
+  <div class="meta"><span id="navLive" class="live-pill"></span>
+    <button id="refreshBtn" class="btn-refresh">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item is-active" href="index.html">终端首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container hx">
+
+  <!-- ① 指令台 HERO -->
+  <section class="hx-hero">
+    <div class="hx-hero-l">
+      <div class="hx-kicker"><span class="hx-blink">●</span> LIVE FEED · 每日 09:00 自动采集</div>
+      <h1 class="hx-title">全球 AI 产业链 &amp; 宏观监测终端</h1>
+      <div class="hx-sub">GLOBAL AI SUPPLY-CHAIN &amp; MACRO MONITOR — 数据驱动 · 可溯源 · 可播报</div>
+      <div class="hx-brief" id="briefBox">
+        <div class="hx-brief-head">
+          <span class="hx-tag">DAILY BRIEFING</span>
+          <button class="hx-voice" id="voiceBrief" title="语音播报今日速览">🔊 播报今日</button>
+        </div>
+        <p class="hx-summary" id="summaryText">加载中…</p>
+      </div>
+    </div>
+    <div class="hx-hero-r" id="heroStats"></div>
+  </section>
+
+  <!-- ② 信号矩阵 SIGNAL MATRIX -->
+  <section class="hx-sec">
+    <div class="hx-sec-ttl"><span class="hx-dot"></span>SIGNAL MATRIX · 收益率 / 股指信号矩阵
+      <span class="hx-hint">点击任意卡片跳转行情来源 ↗</span></div>
+    <div class="hx-mat">
+      <div class="hx-mat-col">
+        <div class="hx-mat-lab">🏦 10Y 国债收益率 <span class="hx-mut">(%，越低越松)</span></div>
+        <div class="hx-kpi-row" id="kpiYields"></div>
+      </div>
+      <div class="hx-mat-col">
+        <div class="hx-mat-lab">📈 核心股指 <span class="hx-mut">(收盘)</span></div>
+        <div class="hx-kpi-row" id="kpiIndices"></div>
+      </div>
+    </div>
+    <div class="hx-deriv" id="hxDeriv"></div>
+  </section>
+
+  <!-- ③ 中国宏观补充条 -->
+  <section class="hx-sec">
+    <div class="hx-sec-ttl"><span class="hx-dot"></span>CN MACRO · 中国宏观补充指标
+      <span class="hx-hint" id="cnNote">最新官方标准值</span></div>
+    <div class="hx-cn-grid" id="homeCn"></div>
+  </section>
+
+  <!-- ④ 双栏：个股榜 / 走势 -->
+  <section class="hx-two">
+    <div class="hx-card">
+      <div class="hx-sec-ttl"><span class="hx-dot"></span>MOVER BOARD · 个股涨跌榜
+        <a class="hx-go" href="macro.html">完整 →</a></div>
+      <div class="hx-movers" id="keyMovers"></div>
+      <div class="hx-sec-ttl" style="margin-top:18px"><span class="hx-dot"></span>GDP SNAPSHOT · 宏观速览
+        <a class="hx-go" href="macro.html">完整 →</a></div>
+      <div class="hx-gdp" id="homeGdp"></div>
+    </div>
+    <div class="hx-card">
+      <div class="hx-sec-ttl"><span class="hx-dot"></span>TREND · 近一月走势</div>
+      <div class="hx-mini">
+        <div class="hx-mini-ttl">10Y 收益率（含中10Y，处历史低位）</div>
+        <div class="chart hx-chart" id="yieldChartHome"></div>
+      </div>
+      <div class="hx-mini">
+        <div class="hx-mini-ttl">核心股指（含沪深300）</div>
+        <div class="chart hx-chart" id="indexChartHome"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 消费者硬件入口 -->
+  <section class="hx-sec">
+    <div class="hx-sec-ttl"><span class="hx-dot"></span>CONSUMER · 消费者 AI 硬件速览
+      <a class="hx-go" href="consumer.html">进入 →</a></div>
+    <p class="hx-lede">为预算敏感的科技爱好者整理：AI PC / 消费显卡 / AI 手机 / 迷你主机的价格、NPU 算力与性价比点评。</p>
+    <div class="hx-bands" id="homeBands"></div>
+  </section>
+
+  <!-- ⑥ 最新动态流 -->
+  <section class="hx-two">
+    <div class="hx-card">
+      <div class="hx-sec-ttl"><span class="hx-dot"></span>FEED · 最新硬件动态
+        <a class="hx-go" href="hardware.html">完整 →</a></div>
+      <div id="homeHwNews" class="hx-feed"></div>
+    </div>
+    <div class="hx-card">
+      <div class="hx-sec-ttl"><span class="hx-dot"></span>FEED · 最新模型进展
+        <a class="hx-go" href="models.html">完整 →</a></div>
+      <div id="homeMdNews" class="hx-feed"></div>
+    </div>
+  </section>
+
+  <!-- ⑦ 栏目导航 -->
+  <section class="hx-sec">
+    <div class="hx-sec-ttl"><span class="hx-dot"></span>MODULES · 栏目导航</div>
+    <div class="hx-mods" id="hxMods"></div>
+  </section>
+
+  <div class="footnote hx-note" id="dataNote"></div>
+</main>
+
+<!-- 语音播报浮钮 -->
+<button id="voiceFloat" class="hx-voice-float" title="语音播报速览">🔊</button>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

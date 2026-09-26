@@ -1,0 +1,159 @@
+{
+  "report_date": "2026-09-26",
+  "update_time_utc": "2026-09-26 03:33:00",
+  "macro_market": [
+    {
+      "region": "中国",
+      "gdp_data": "Q2 2026 同比 +4.3%（较 Q1 的 5.0% 放缓），环比约 +0.7%；国家统计局 7 月中发布。上半年 GDP +4.7%，落在全年 4.5%–5.0% 目标区间。",
+      "bond_yield_10y": "CN10Y 1.672%（日变动 ~0.00%），10Y 国债收益率低位持稳；中美 10Y 利差约 -310bp，人民币在岸/离岸延续承压。",
+      "main_index": "沪深300 休市（中秋/周末，无最新收盘；A股、韩国、中国台湾同步因假期休市）。离岸人民币 CNH 6.7227（周跌约 0.4%，连跌四日）。1 年期 LPR 3.00%、5 年期 3.50%，连续 16 个月不变；央行 Q3 例会重申适度宽松。"
+    },
+    {
+      "region": "美国",
+      "gdp_data": "Q2 2026 年化 +1.5%（BEA，7/29 发布），环比 +0.4%；AI 资本开支支撑但政府支出/出口/投资放缓。美联储 9/16 加息 25bp 至 3.75%–4.00%，CME 预期 10 月再加息概率约 64%。",
+      "bond_yield_10y": "US10Y 5.1604%，日 -3.74bp（盘中触及 2007 年来高位 5.32%），周 +16.44bp；30Y 续创 2004 年来新高约 5.5%。",
+      "main_index": "标普500 7,743.41 +0.51%（周 +1.21%）；纳指 27,068.72 +0.48%（周 +2.06%）；纳指100 30,608.13 +0.42%。费城半导体指数 +1.41%（周 +6.27%，四连涨）。"
+    },
+    {
+      "region": "日本",
+      "gdp_data": "Q2 2026 环比 +0.4%（OECD），同比约 +0.6%（Fitch/日银）；内需疲弱但 AI 相关出口拉动。日银加速紧缩，10Y 利率逼近 30 年高。",
+      "bond_yield_10y": "JP10Y 3.075%，日变动约 0（盘中触及 3.115%，创 1996 年 8 月以来约 30 年新高）。",
+      "main_index": "日经225 66,364.20 +1.30%（周 +2.07%，五连涨）；东证指数 +1.31%。银行股受利差扩大提振普涨 3%–4%。"
+    },
+    {
+      "region": "欧元区·德国",
+      "gdp_data": "欧元区 Q2 2026 同比 +1.0%（BOJ/ECB 口径）；德国 Q2 同比 +0.9%（Fitch），环比 +0.3%（OECD），结束三年停滞。ECB 已加息至温和限制性区间。",
+      "bond_yield_10y": "DE10Y 3.601%，日 +0.2bp（周 +8.2bp，创 2009 年来高位，逼近 3.749%）；法/意 10Y 同步上行。",
+      "main_index": "欧洲斯托克50 6,298.15 +0.41%；德国 DAX 25,408.64 +0.56%（周 +0.41%）；STOXX 600 638.65 +0.35%。"
+    },
+    {
+      "region": "韩国",
+      "gdp_data": "Q2 2026 环比 +0.6%（OECD，出口/私人消费走弱）；HBM 与半导体出口强劲构成主要拉动。",
+      "bond_yield_10y": "韩10Y 随全球升势上行（中秋 Chuseok 假期休市，9/28 复市，具体日值未更新）。",
+      "main_index": "韩国综合指数 休市（中秋假期，9/28 复市）；三星电子/SK 海力士 ADR 普涨（SK 海力士 +2.78%）。"
+    },
+    {
+      "region": "中国台湾",
+      "gdp_data": "台湾 Q2 2026 经济稳健，AI 服务器与芯片出口带动；主计处具体 GDP 增速待发布。",
+      "bond_yield_10y": "台10Y 休市（中秋假期，9/29 复市）。",
+      "main_index": "台湾加权指数 休市（中秋假期，9/29 复市）；台积电 ADR 450.61 -0.12%（周 +3.67%，年初至今 +48.28%）。"
+    }
+  ],
+  "ai_companies": {
+    "hardware": [
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA",
+        "stock_performance": "NVDA $225.07，+0.22%（9/25 收盘）；盘前因马斯克 xAI 采购消息一度 +0.7%",
+        "past_24h_updates": [
+          "马斯克称 xAI 孟菲斯 Colossus 园区已部署约 78 万颗英伟达芯片（Hopper+Blackwell），另有 22 万颗 GB300 下周上线、10 月再加 22 万，年底或达 144 万颗，缓解数据中心过度建设担忧。",
+          "花旗重申买入、目标 $265，称 Blackwell+Rubin 至 2027 年订单与需求超 1 万亿美元，且 50% 自由现金流将用于回购（2026-27 合计逾 2000 亿美元）。",
+          "行业会议披露 Rubin 平台发货为本司史上最快爬坡，Q3 营收指引 $108B 仅覆盖约 70% 需求。"
+        ]
+      },
+      {
+        "ticker": "TSM",
+        "name": "TSMC（台积电）",
+        "stock_performance": "TSM $450.61，-0.12%（美股 ADR）；周 +3.67%，年初至今 +48.28%",
+        "past_24h_updates": [
+          "披露 AI 芯片路线图：先进节点首度一分为二——移动端轨道（N2U/A13/A12）与 AI/HPC 轨道（A16 背面供电 Super Power Rail，2026 Q4 量产）。",
+          "NVIDIA 下一代 Feynman GPU 跳过标准 2nm 直取 A16 首发；CoWoS/3DFabric 与 COUPE 共封装光引擎成重点。",
+          "上调 2026 年资本开支至 600–640 亿美元、收入增长预期超 40%，扩产先进封装解瓶颈。"
+        ]
+      },
+      {
+        "ticker": "ASML",
+        "name": "ASML",
+        "stock_performance": "ASML +1.24%（9/25）；欧洲需求疲软但美/亚晶圆厂资本开支支撑",
+        "past_24h_updates": [
+          "执行副总裁再警告欧洲在 AI 晶圆厂投资不足、当前在欧未售出任何 EUV/High-NA 设备，欧洲有持续落后风险。",
+          "美日拟共建晶圆厂（5500 亿美元对美投资协议第三批），先进制程设备需求外溢。",
+          "High-NA EUV 仍是 2nm 以下刚需，AI 扩产刚性受益。"
+        ]
+      },
+      {
+        "ticker": "AVGO",
+        "name": "Broadcom",
+        "stock_performance": "AVGO +0.70%（9/25）；定制 ASIC 持续出货",
+        "past_24h_updates": [
+          "定制 AI ASIC（Google TPU/Meta MTIA/字节）受益云厂商自研芯片外溢，AI 半导体收入同比约 3.22×。",
+          "与 OpenAI 联合 Jalapeño 推理芯片路线，深化与头部实验室绑定。",
+          "网络（Tomahawk/Jericho）与计算协同降低 TCO，推理侧对 GPU 形成成本替代。"
+        ]
+      },
+      {
+        "ticker": "AMD",
+        "name": "AMD",
+        "stock_performance": "AMD 本周初创历史新高达 $613.50（+9.6%），市值首破 1 万亿美元；EPYC 9006 披露",
+        "past_24h_updates": [
+          "发布第六代 EPYC 9006（Venice）：双轨 Zen 6/Zen 6c 均采用台积电 2nm，密集版最高 256 核、1024MB L3，内存通道 16 条、PCIe 6/CXL 3.1。",
+          "MI450/Helios 机架起步出货，Q3 为爬坡开端；Helios 每美元 token 较竞品高约 30%。",
+          "跻身万亿市值俱乐部，AI 算力叙事获资本市场确认。"
+        ]
+      },
+      {
+        "ticker": "MU",
+        "name": "Micron",
+        "stock_performance": "MU $1,082.28，+0.16%（9/25）；市值破万亿美元",
+        "past_24h_updates": [
+          "FQ3 2026 营收 $41.46B（环比 +74%）、非 GAAP 毛利率 84.9%；HBM4 收入已超 $1B，2027 年前产能售罄。",
+          "签 16 份多年客户长约锁定约 $100B 最低收入；FY2027 Capex 上调至中段 $40B+。",
+          "HBM 成 AI 军备核心约束，美系本土产能受《芯片法案》支持。"
+        ]
+      }
+    ],
+    "software_cloud": [
+      {
+        "ticker": "MSFT",
+        "name": "Microsoft",
+        "stock_performance": "MSFT +3.66%（9/25），创去年 11 月以来收盘新高；2026 年累计 +7%",
+        "past_24h_updates": [
+          "推出新版 Copilot：新增 Home/Code/Autopilot 三项能力，将 AI 助手从对话工具升级为可执行任务、构建应用、持续工作的 agent，并内嵌 Word/Excel/PPT。",
+          "AI 资本开支与云业务拉动，FY 末盈利同比 +30%+；Copilot 定位「类 Office 的影响力级超级 App」。",
+          "据称放弃 Copilot+ PC 硬件品牌，转向企业级。"
+        ]
+      },
+      {
+        "ticker": "GOOGL",
+        "name": "Alphabet / Google",
+        "stock_performance": "GOOGL $343.92，+0.43%（9/25）",
+        "past_24h_updates": [
+          "Gemini 4 进入 post-training，将「远早于年底」发布，结束自 2025-11 以来 11 个月旗舰空窗。",
+          "联合 OpenAI、Anthropic 筹建自愿安全机构 SAFA，绕开政府直接监管。",
+          "TPU v8 Ironwood 与自研基础设施支撑全栈 AI 闭环。"
+        ]
+      },
+      {
+        "ticker": "META",
+        "name": "Meta",
+        "stock_performance": "META -3.33%（9/25），但周涨 +12.99%（Muse agent 催化后获利回吐）",
+        "past_24h_updates": [
+          "明星智能体 Muse 被曝遇「算力瓶颈」，服务降级、任务失败，股价单日 -3.33%。",
+          "Connect 大会发布 Ray-Ban Meta Gen 3（Aperol/Bellini）、Luna 无摄像头音频眼镜、Project Phoenix MR 头显，均内置 Muse Spark 模型。",
+          "Muse 早期采用速度据报超过 ChatGPT 同期。"
+        ]
+      },
+      {
+        "ticker": "AMZN",
+        "name": "Amazon",
+        "stock_performance": "AMZN +0.12%（9/25）",
+        "past_24h_updates": [
+          "Amazon Accelerate 大会向 Claude 开放 Seller Central API，推 Bedrock 插件（Nova+Claude），免费 12 个月 Quick Plus。",
+          "AI 基础设施累计支出约 $273B、回收约 $40B，Goldman 预计 2027 年五大超大规模 Capex 升至 $1.2T。",
+          "Nova 模型与自研 Trainium 芯片降本提效。"
+        ]
+      },
+      {
+        "ticker": "AAPL",
+        "name": "Apple",
+        "stock_performance": "AAPL $341.07，+1.53%（9/25），创历史收盘新高，市值逼近 5 万亿美元",
+        "past_24h_updates": [
+          "M5（AI 性能较 M4 提升 3.5×）、A19 Pro（N3P，Neural Engine ~35 TOPS）端侧 AI 持续落地。",
+          "官宣 10 月发布 512GB 内存版 Mac Studio（本地 AI 运算旗舰，定价约 17 万元），4 台集群性能达 3×。",
+          "据报与 Broadcom 合作自研 AI 服务器芯片 Baltra（台积电代工），向云端算力延伸。"
+        ]
+      }
+    ]
+  },
+  "daily_executive_summary": "今日全球 AI 产业链主线为「算力供需两旺，但利率与地缘风险抬头」。美股在美伊谈判缓和、油价回落下收高，标普500周涨1.21%、纳指周涨2.06%；AI 权重股微软(+3.66%)、苹果(市值近5万亿美元)领涨，AMD 加入万亿俱乐部。硬件侧，NVIDIA Rubin/GB300 订单超万亿美元、Micron 与 SK海力士 HBM 售罄至2027，台积电上调 Capex 至640亿美元并拆分 AI/移动双路线图；国产线华为昇腾960超节点与 DeepSeek 自研芯片推进。风险点：美债10Y 创2007年来高(5.16%)、全球债券收益率飙升压制高估值，韩国/台湾/中国因中秋假期休市，HBM 产能与出口管制仍是关键约束。"
+}

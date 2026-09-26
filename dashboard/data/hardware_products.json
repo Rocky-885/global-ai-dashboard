@@ -1,0 +1,1389 @@
+{
+  "updated": "2026-09-26",
+  "summary": "面向金融与科技关注者的 AI 硬件产品数据库：按算力芯片、存储、设备EDA、代工、互联超节点、先进封装、果链与电子制造服务七大品类整理主要产品的技术参数、科技特点与定位，并标注所属国家/地区（中国 / 美国 / 日本 / 韩国 / 中国台湾 / 荷兰），可按地区筛选扫描。数据综合自各家官方披露、GTC/Computex/云栖/华为全联接等发布会与产业链公开报道，仅供研究参考。",
+  "categories": [
+    {
+      "id": "compute",
+      "name": "AI 算力芯片（GPU / NPU / ASIC）",
+      "desc": "训练与推理的核心算力来源，决定 AI 工厂的上限。当前主线是机架级（rack-scale）集成与 agentic AI 专用架构。",
+      "products": [
+        {
+          "id": "nvidia_rubin",
+          "country": "美国",
+          "vendor": "NVIDIA",
+          "name": "Vera Rubin（Rubin GPU + Vera CPU）",
+          "status": "H2 2026 量产 / 2027 机架交付",
+          "date": "2026-06-01",
+          "specs": {
+            "晶体管": "336 B（Rubin GPU）",
+            "显存": "288 GB HBM4 @ 22 TB/s",
+            "算力": "50 PFLOPS NVFP4 推理 / 35 PFLOPS 训练",
+            "互联": "NVLink 6 @ 3.6 TB/s（每 GPU）",
+            "制程": "TSMC N3；Vera CPU 88 Olympus 核 / 176 线程"
+          },
+          "tech_highlights": [
+            "NV-HBI 双裸片（reticle-limited）高速互联，单芯片 224 SM / 896 Tensor Core",
+            "第三代 Transformer Engine，支持激活稀疏（2:4）压缩注意力中间数据",
+            "机架级 NVL72：260 TB/s 总 NVLink、3.6 EFLOPS 推理、100% 液冷"
+          ],
+          "positioning": "面向万亿参数与 agentic AI 的机架级 AI 工厂核心，取代 Blackwell Ultra 成为下一代旗舰。",
+          "ticker": "NVDA"
+        },
+        {
+          "id": "nvidia_gb300",
+          "country": "美国",
+          "vendor": "NVIDIA",
+          "name": "GB300 NVL72（Blackwell Ultra 机架）",
+          "status": "已量产出货",
+          "date": "2026-03-18",
+          "specs": {
+            "配置": "72× Blackwell Ultra GPU + 36× Grace CPU",
+            "显存": "20 TB HBM3e（系统级）",
+            "算力": "1,440 PFLOPS 稀疏 FP4 / 1,080 密集 FP4",
+            "NVLink": "130 TB/s（整架）",
+            "功耗": "132–140 kW/架，全液冷"
+          },
+          "tech_highlights": [
+            "MoE 预训练世界纪录：256 GPU 跑 DeepSeek-V3 671B 达 1,648 TFLOPs/GPU（较 GB200 约 3×）",
+            "9 个 NVSwitch tray 实现 72 GPU 全互联非阻塞 P2P",
+            "软件优化 6 个月即在同硬件上提升 1.5× 吞吐"
+          ],
+          "positioning": "当前量产主力，适合推理与 reasoning/agentic 工作负载的 AI 工厂。",
+          "ticker": "NVDA"
+        },
+        {
+          "id": "broadcom_asic",
+          "country": "美国",
+          "vendor": "Broadcom",
+          "name": "定制 AI ASIC（TPU / 自研 XPU）",
+          "status": "持续出货（Google/Meta/字节等）",
+          "date": "2026-09-10",
+          "specs": {
+            "客户": "Google TPU、Meta MTIA、字节等",
+            "收入": "AI 半导体收入同比约 3.22×",
+            "定位": "超大规模客户专用加速器"
+          },
+          "tech_highlights": [
+            "以 2.5D/3D 先进封装集成 HBM 与自研逻辑",
+            "网络（Tomahawk/Jericho）与计算协同，降低 TCO",
+            "ASIC 路线在推理侧对 GPU 形成成本替代"
+          ],
+          "positioning": "AI ASIC 龙头，吃下云厂商自研芯片外溢订单。",
+          "ticker": "AVGO"
+        },
+        {
+          "id": "amd_mi400",
+          "country": "美国",
+          "vendor": "AMD",
+          "name": "Instinct MI350 / MI400",
+          "status": "MI350 已出货 / MI400 2027",
+          "date": "2026-06-12",
+          "specs": {
+            "显存": "MI350 288 GB HBM3e；MI400 转向 HBM4",
+            "算力": "FP4/FP8 大幅跃升，对标 Blackwell",
+            "互联": "Infinity Fabric 跨节点扩展"
+          },
+          "tech_highlights": [
+            "CDNA 架构面向生成式 AI 与 HPC 融合",
+            "ROCm 软件栈持续补全 CUDA 生态缺口",
+            "MI400 以 HBM4 + 更高带宽冲击机架级市场"
+          ],
+          "positioning": "GPU 第二供应商，争取云厂商多元化供给。",
+          "ticker": "AMD"
+        },
+        {
+          "id": "google_tpu",
+          "country": "美国",
+          "vendor": "Google",
+          "name": "TPU v8「Ironwood」",
+          "status": "已部署于 Google Cloud",
+          "date": "2026-04-09",
+          "specs": {
+            "算力": "单芯片峰值达数十 PFLOPS 级（FP8）",
+            "显存": "HBM 高带宽，支撑超长上下文",
+            "互联": "ICI 光互联，万卡级横向扩展"
+          },
+          "tech_highlights": [
+            "专为 Gemini 训练/推理自研，软硬件协同",
+            "液冷 TPU pod 支持超大模型并行",
+            "通过 Vertex AI 对外提供服务"
+          ],
+          "positioning": "Google 全栈 AI 自研闭环的核心算力。",
+          "ticker": "GOOGL"
+        },
+        {
+          "id": "tesla_ai6",
+          "country": "美国",
+          "vendor": "Tesla",
+          "name": "AI6 / Dojo 后续代际",
+          "status": "研发/小批量",
+          "date": "2026-08-01",
+          "specs": {
+            "定位": "自动驾驶 + 机器人 + 训练一体",
+            "制程": "台积电先进节点",
+            "封装": "InFO/CoWoS 类先进封装"
+          },
+          "tech_highlights": [
+            "面向端到端神经网络推理的专用架构",
+            "与 Dojo 训练集群互补，形成数据闭环",
+            "量产节奏受车端需求驱动"
+          ],
+          "positioning": "垂直整合算力，服务于 FSD 与 Optimus。",
+          "ticker": "TSLA"
+        },
+        {
+          "id": "apple_m5",
+          "country": "美国",
+          "vendor": "Apple",
+          "name": "Apple M5 系列（M5 / Pro / Max / Ultra）",
+          "status": "已量产（2025 起）",
+          "date": "2026-05-01",
+          "specs": {
+            "制程": "TSMC N3E / N3P",
+            "Neural Engine": "端侧推理大幅增强，帧率级实时生成",
+            "封装": "InFO / 多芯片（Ultra 拼接）",
+            "定位": "Mac / iPad 端侧 AI 中枢"
+          },
+          "tech_highlights": [
+            "统一内存架构（UMA）让 CPU/GPU/NPU 共享内存，降低大模型推理延迟",
+            "NPU 与 GPU 协同支持本地 Apple Intelligence 与图像/视频生成",
+            "能效比领先，支撑无风扇轻薄设备的端侧推理"
+          ],
+          "positioning": "消费端侧 AI 算力标杆，主打隐私与低延迟。",
+          "ticker": "AAPL"
+        },
+        {
+          "id": "apple_a19",
+          "country": "美国",
+          "vendor": "Apple",
+          "name": "Apple A19 Pro（iPhone 17 系列）",
+          "status": "已量产（2025）",
+          "date": "2026-09-01",
+          "specs": {
+            "制程": "TSMC N3P",
+            "Neural Engine": "升级至约 35 TOPS 级，支持端侧多模态",
+            "特色": "与 C1/C2 自研基带协同",
+            "定位": "iPhone 端侧 Apple Intelligence"
+          },
+          "tech_highlights": [
+            "端侧运行大模型与实时翻译/摘要，无需上云",
+            "与 Apple 隐私架构绑定，数据不出设备",
+            "影像与生成式 AI 能力下沉到手机"
+          ],
+          "positioning": "移动端侧 AI 旗舰 SoC。",
+          "ticker": "AAPL"
+        },
+        {
+          "id": "apple_baltra",
+          "country": "美国",
+          "vendor": "Apple",
+          "name": "「Baltra」自研 AI 服务器芯片（研发中）",
+          "status": "研发 / 据报与 Broadcom 合作设计",
+          "date": "2026-07-15",
+          "specs": {
+            "合作": "Broadcom 代设计、TSMC 代工",
+            "定位": "Apple 自建 AI 数据中心的训练/推理芯片",
+            "对标": "降低对外部 GPU 的依赖"
+          },
+          "tech_highlights": [
+            "标志 Apple 从端侧向云端算力纵向延伸",
+            "与端侧 M/A 系列形成「端—云」统一架构设想",
+            "若落地将重塑 Apple 基础设施 CapEx 结构"
+          ],
+          "positioning": "Apple 云端 AI 自主化关键一步（尚未官宣量产）。",
+          "ticker": "AAPL"
+        },
+        {
+          "id": "ali_v900",
+          "country": "中国",
+          "vendor": "阿里平头哥",
+          "name": "真武 V900",
+          "status": "2027 Q1 量产",
+          "date": "2026-09-20",
+          "specs": {
+            "显存": "216 GB HBM",
+            "片间带宽": "1,200 GB/s",
+            "集群": "规划 50 万卡级集群",
+            "定位": "训练 + 推理一体加速卡"
+          },
+          "tech_highlights": [
+            "高带宽片间互联支撑超大模型张量/流水并行",
+            "与阿里云 CIPU/灵骏集群深度协同，软硬一体优化",
+            "面向通义千问大模型训练与电商/广告推理"
+          ],
+          "positioning": "国产算力旗舰，承接阿里内部及云上大模型训练推理需求。",
+          "ticker": "BABA / 9988.HK"
+        },
+        {
+          "id": "huawei_ascend960",
+          "country": "中国",
+          "vendor": "华为",
+          "name": "昇腾 960 超节点",
+          "status": "已发布 / 规模部署中",
+          "date": "2026-09-15",
+          "specs": {
+            "规模": "4,096 卡超节点",
+            "算力": "8 EFLOPS（FP8）",
+            "显存": "1 PB HBM（节点级）",
+            "互联": "华为自研高速互联总线"
+          },
+          "tech_highlights": [
+            "超节点 Scale-up 架构，单域 4,096 卡全互联",
+            "全栈自主（芯片/框架/算子/CANN），规避外部限制",
+            "面向盘古大模型与行业 AI 落地"
+          ],
+          "positioning": "国产自主算力底座，主攻政企与关键行业大模型。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "huawei_ascend910c",
+          "country": "中国",
+          "vendor": "华为",
+          "name": "昇腾 910C / 910B",
+          "status": "已大规模量产出货",
+          "date": "2026-03-01",
+          "specs": {
+            "制程": "7nm 级（国产）",
+            "算力": "约 640 TFLOPS（FP16）",
+            "显存": "64 GB HBM2e",
+            "互联": "HCCS ~392 GB/s（卡间）"
+          },
+          "tech_highlights": [
+            "国产训练卡主力，广泛用于政企与互联网客户",
+            "CANN 栈 + ModelArts 生态持续补全算子覆盖",
+            "在受限供给下成为国内替代 NVIDIA 的核心"
+          ],
+          "positioning": "国产 AI 训练/推理芯片基本盘。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "huawei_ascend920",
+          "country": "中国",
+          "vendor": "华为",
+          "name": "昇腾 920（下一代）",
+          "status": "2026 送样 / 2027 量产预期",
+          "date": "2026-09-20",
+          "specs": {
+            "制程": "先进制程（国产）",
+            "算力": "对标国际旗舰代际",
+            "定位": "910C 的代际升级"
+          },
+          "tech_highlights": [
+            "单卡与超节点双重升级，强化大模型训练",
+            "配合昇腾云与超节点形成规模化供给",
+            "软件栈向后兼容，平滑迁移"
+          ],
+          "positioning": "华为算力自主化下一主力。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "cambricon590",
+          "country": "中国",
+          "vendor": "寒武纪",
+          "name": "思元 590（MLU590）",
+          "status": "已量产",
+          "date": "2026-02-10",
+          "specs": {
+            "制程": "7nm",
+            "算力": "接近国际主流训练卡代际",
+            "互联": "MLU-Link",
+            "定位": "国产 GPGPU 训练卡"
+          },
+          "tech_highlights": [
+            "思元系列迭代，覆盖训练与推理",
+            "在国产服务器与智算中心加速渗透",
+            "软件栈（NeuWare）持续完善"
+          ],
+          "positioning": "国产算力第二梯队核心。",
+          "ticker": "688256.SH"
+        },
+        {
+          "id": "hygon_dcu",
+          "country": "中国",
+          "vendor": "海光信息",
+          "name": "深算 DCU（GPGPU）",
+          "status": "已量产（海光四号/五号）",
+          "date": "2026-04-01",
+          "specs": {
+            "架构": "基于 AMD CDNA 授权衍生的类 CUDA 架构",
+            "生态": "DTK 兼容 CUDA 生态",
+            "定位": "国产高性能 GPGPU"
+          },
+          "tech_highlights": [
+            "兼容 CUDA 生态，迁移成本低，利于存量代码复用",
+            "面向 HPC 与 AI 训练推理双场景",
+            "信创与智算中心重点采购对象"
+          ],
+          "positioning": "国产兼容生态路线代表。",
+          "ticker": "688041.SH"
+        },
+        {
+          "id": "biren_br104",
+          "country": "中国",
+          "vendor": "壁仞科技",
+          "name": "BR100 / BR104（GPGPU）",
+          "status": "已出货",
+          "date": "2026-01-15",
+          "specs": {
+            "算力": "BR100 曾达 1000+ TFLOPS 峰值",
+            "制程": "7nm",
+            "定位": "国产通用 GPU"
+          },
+          "tech_highlights": [
+            "自研架构，早期峰值算力亮眼",
+            "面向数据中心训练推理",
+            "生态与软件栈仍在追赶期"
+          ],
+          "positioning": "国产 GPGPU 新锐。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "moore_thread_s5000",
+          "country": "中国",
+          "vendor": "摩尔线程",
+          "name": "MTT S5000（全功能 GPU）",
+          "status": "已发布",
+          "date": "2026-02-20",
+          "specs": {
+            "显存": "32 GB",
+            "制程": "7nm",
+            "定位": "全功能 GPU（图形+计算）"
+          },
+          "tech_highlights": [
+            "兼顾图形渲染与 AI 计算的全功能路线",
+            "MUSA 软件栈自主，适配国产生态",
+            "面向信创与智算场景"
+          ],
+          "positioning": "国产全功能 GPU 探索者。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "enflame_i20",
+          "country": "中国",
+          "vendor": "燧原科技",
+          "name": "云燧 i20 / 训练加速卡",
+          "status": "已量产",
+          "date": "2026-01-10",
+          "specs": {
+            "定位": "AI 训练 / 推理加速卡",
+            "生态": "自研软件栈 + 主流框架适配",
+            "客户": "智算中心与互联网"
+          },
+          "tech_highlights": [
+            "聚焦云端训练推理算力",
+            "软硬件协同优化主流大模型",
+            "国产服务器生态合作广泛"
+          ],
+          "positioning": "国产 AI 加速卡供应商。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "horizon_j6",
+          "country": "中国",
+          "vendor": "地平线",
+          "name": "征程 6（J6）智驾 SoC",
+          "status": "已量产",
+          "date": "2026-03-05",
+          "specs": {
+            "算力": "最高 560 TOPS（BEV+Transformer）",
+            "制程": "7nm",
+            "定位": "车载智驾计算方案"
+          },
+          "tech_highlights": [
+            "面向端到端智驾与 BEV+Transformer 架构",
+            "与多家车企量产合作",
+            "软硬一体「芯片+工具链」交付"
+          ],
+          "positioning": "国产智驾计算平台龙头。",
+          "ticker": "9660.HK"
+        },
+        {
+          "id": "blacksesame_a2000",
+          "country": "中国",
+          "vendor": "黑芝麻智能",
+          "name": "A2000 智驾芯片",
+          "status": "已发布 / 量产导入",
+          "date": "2026-02-15",
+          "specs": {
+            "算力": "高算力智驾（跨高低阶统一架构）",
+            "定位": "行泊一体 / 城市 NOA",
+            "客户": "车企与 Tier1"
+          },
+          "tech_highlights": [
+            "统一架构覆盖从入门到高阶智驾",
+            "武当系列跨域融合计算",
+            "国产车规芯片重要参与者"
+          ],
+          "positioning": "国产智驾 SoC 新锐。",
+          "ticker": "2533.HK"
+        },
+        {
+          "id": "mediatek_dimensity",
+          "country": "中国台湾",
+          "vendor": "联发科 MediaTek",
+          "name": "天玑旗舰（Dimensity）含 NPU",
+          "status": "已量产",
+          "date": "2026-05-20",
+          "specs": {
+            "制程": "TSMC N3",
+            "NPU": "端侧生成式 AI 专用单元（APU）",
+            "定位": "安卓旗舰端侧 AI SoC"
+          },
+          "tech_highlights": [
+            "端侧运行多模态大模型与实时生成",
+            "与 Meta/Google 等合作端侧模型落地",
+            "在安卓旗舰份额持续提升"
+          ],
+          "positioning": "移动端侧 AI SoC 主力供应商。",
+          "ticker": "2454.TW"
+        },
+        {
+          "id": "nvidia_feynman",
+          "country": "美国",
+          "vendor": "NVIDIA",
+          "name": "Feynman（Rubin 后继 GPU，A16 节点）",
+          "status": "路线图披露 / 2027+ 规划",
+          "date": "2026-09-26",
+          "specs": {
+            "制程": "TSMC A16（背面供电 Super Power Rail，跳过标准 2nm）",
+            "定位": "Rubin 之后的下一代旗舰 GPU",
+
+            "互联": "NVLink 7（规划）"
+          },
+          "tech_highlights": [
+            "据报跳过标准 2nm、直取台积电 A16 背面供电首发，强化 AI/HPC 密度",
+            "延续机架级（rack-scale）集成路线，与 Vera Rubin 平台衔接",
+            "面向 2028 年前后十万亿参数 agentic AI 训练/推理"
+          ],
+          "positioning": "NVIDIA 在 Rubin 之后的代际储备，巩固 AI 算力路线领先。",
+          "ticker": "NVDA"
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "name": "存储（HBM / DRAM / NAND）",
+      "desc": "HBM 是算力芯片的「内存墙」解法，也是 AI 军备竞赛的产能瓶颈与定价核心；DRAM/NAND 国产化是自主可控关键。",
+      "products": [
+        {
+          "id": "samsung_hbm4",
+          "country": "韩国",
+          "vendor": "Samsung",
+          "name": "HBM4 / HBM4E",
+          "status": "2027 产量拟翻倍",
+          "date": "2026-09-18",
+          "specs": {
+            "代际": "HBM4（2026）/ HBM4E（2027）",
+            "带宽": "较 HBM3e 提升约 1.5–2×",
+            "堆叠": "16-Hi / 更高层数"
+          },
+          "tech_highlights": [
+            "采用混合键合（hybrid bonding）提升 I/O 密度",
+            "与自家 DRAM 产能协同，争夺 NVIDIA 认证份额",
+            "2027 年 HBM 总产能规划翻倍以匹配 Rubin 放量"
+          ],
+          "positioning": "HBM 三强之一，瞄准高端 AI 内存供给缺口。",
+          "ticker": "005930.KS"
+        },
+        {
+          "id": "skhynix_hbm4",
+          "country": "韩国",
+          "vendor": "SK 海力士",
+          "name": "HBM4（NVIDIA 认证主力）",
+          "status": "量产爬坡",
+          "date": "2026-06-01",
+          "specs": {
+            "地位": "NVIDIA HBM4 首批认证供应商",
+            "带宽": "12 TB/s 级（配合 Rubin）",
+            "堆叠": "12/16-Hi 先进堆叠"
+          },
+          "tech_highlights": [
+            "MR-MUF 封装工艺成熟，良率领先",
+            "与 NVIDIA 深度绑定，产能优先保供",
+            "HBM4E 路线图已公布"
+          ],
+          "positioning": "全球 HBM 市占领先者，AI 内存核心受益方。",
+          "ticker": "000660.KS"
+        },
+        {
+          "id": "micron_hbm",
+          "country": "美国",
+          "vendor": "Micron",
+          "name": "HBM3e / HBM4",
+          "status": "营收创纪录",
+          "date": "2026-09-24",
+          "specs": {
+            "财报": "Q3 营收同比 +345.7%（创纪录）",
+            "产品": "HBM3e 供货 NVIDIA/AMD；HBM4 跟进",
+            "技术": "1β/1γ DRAM 制程"
+          },
+          "tech_highlights": [
+            "HBM 量价齐升驱动内存超级周期",
+            "美国本土产能受《芯片法案》补贴支持",
+            "与 AI 加速器客户签长约锁定产能"
+          ],
+          "positioning": "美系 HBM 主力，受益于 AI 内存本土化趋势。",
+          "ticker": "MU"
+        },
+        {
+          "id": "cxmt_g5",
+          "country": "中国",
+          "vendor": "长鑫存储（CXMT）",
+          "name": "G5 DRAM",
+          "status": "量产",
+          "date": "2026-09-12",
+          "specs": {
+            "代际": "G5（约 1β 等效）",
+            "用途": "国产服务器/AI 推理内存",
+            "良率": "持续提升中"
+          },
+          "tech_highlights": [
+            "国产 DRAM 自主突破，降低外部依赖",
+            "面向昇腾/平头哥等国产算力配套",
+            "HBM 路线亦在研发储备"
+          ],
+          "positioning": "国产存储自主可控关键一环。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "ymtc_xtacking4",
+          "country": "中国",
+          "vendor": "长江存储（YMTC）",
+          "name": "Xtacking 4.0 / X3-9070（3D NAND）",
+          "status": "量产爬坡（2026）",
+          "date": "2026-06-15",
+          "specs": {
+            "层数": "294 层级 3D NAND",
+            "技术": "Xtacking 4.0（晶圆键合，外围与阵列分建）",
+            "产能": "武汉基地扩产中"
+          },
+          "tech_highlights": [
+            "Xtacking 架构提升 I/O 速率与堆叠效率",
+            "国产 NAND 龙头，冲击企业级与消费级市场",
+            "HBM/DRAM 路线亦在布局"
+          ],
+          "positioning": "国产 NAND 自主核心，与 CXMT 共筑存储双雄。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "gigadevice",
+          "country": "中国",
+          "vendor": "兆易创新",
+          "name": "NOR / NAND Flash 与 DRAM",
+          "status": "量产",
+          "date": "2026-04-10",
+          "specs": {
+            "产品": "SPI NOR 全球领先份额 / NAND / DRAM（自有+长鑫合作）",
+            "定位": "国产存储 IC 平台"
+          },
+          "tech_highlights": [
+            "NOR Flash 市占居前，车规与工控渗透",
+            "利基 DRAM 与长鑫协同补全品类",
+            "MCU+存储「一体两翼」布局"
+          ],
+          "positioning": "国产存储 IC 龙头之一。",
+          "ticker": "603986.SH"
+        },
+        {
+          "id": "issi_bjt",
+          "country": "中国",
+          "vendor": "北京君正（ISSI）",
+          "name": "车规 DRAM / SRAM / Flash",
+          "status": "量产",
+          "date": "2026-03-20",
+          "specs": {
+            "产品": "车规级 DRAM / SRAM / NAND",
+            "定位": "车载与工业存储"
+          },
+          "tech_highlights": [
+            "收购 ISSI 切入车规存储高地",
+            "受益汽车电子与智驾算力增长",
+            "高可靠场景国产替代"
+          ],
+          "positioning": "车规存储国产代表。",
+          "ticker": "300223.SZ"
+        },
+        {
+          "id": "kioxia",
+          "country": "日本",
+          "vendor": "铠侠 Kioxia",
+          "name": "BiCS FLASH 3D NAND",
+          "status": "量产（与闪迪/西部数据合资）",
+          "date": "2026-05-10",
+          "specs": {
+            "层数": "332 层级 3D NAND",
+            "技术": "CBA（CMOS Bonded Array）架构",
+            "定位": "NAND 三强之一"
+          },
+          "tech_highlights": [
+            "与闪迪/西部数据长期合资，规模效应显著",
+            "高层数堆叠提升位元成本优势",
+            "企业级 SSD 与数据中心需求受益"
+          ],
+          "positioning": "日本存储支柱，全球 NAND 核心供应商。",
+          "ticker": "—（铠侠控股）"
+        },
+        {
+          "id": "sony_cis",
+          "country": "日本",
+          "vendor": "Sony",
+          "name": "CMOS 图像传感器（CIS）",
+          "status": "量产",
+          "date": "2026-04-15",
+          "specs": {
+            "份额": "手机 CIS 全球领先",
+            "定位": "视觉感知与 AI 摄像头核心"
+          },
+          "tech_highlights": [
+            "堆叠式 CIS + 自带 AI 处理（智能视觉传感器）",
+            "受益机器视觉、自动驾驶与端侧 AI 摄像头",
+            "与索尼半导体制造协同"
+          ],
+          "positioning": "AI 视觉感知底层核心器件供应商。",
+          "ticker": "6758.T"
+        },
+        {
+          "id": "winbond",
+          "country": "中国台湾",
+          "vendor": "华邦电 Winbond",
+          "name": "NOR / NAND / 利基 DRAM",
+          "status": "量产",
+          "date": "2026-03-12",
+          "specs": {
+            "产品": "SpiNOR / 利基 DRAM / 高容量 NOR",
+            "定位": "利基存储与车规"
+          },
+          "tech_highlights": [
+            "在利基与车规存储具差异化优势",
+            "受益 IoT 与边缘 AI 设备存储需求",
+            "与台湾封测生态协同"
+          ],
+          "positioning": "中国台湾利基存储代表。",
+          "ticker": "2344.TW"
+        }
+      ]
+    },
+    {
+      "id": "equip",
+      "name": "半导体设备与 EDA",
+      "desc": "先进制程与封装的「卖铲人」，决定整个产业链的扩产天花板；国产设备/EDA 是自主可控攻坚重点。",
+      "products": [
+        {
+          "id": "asml_euv",
+          "country": "荷兰",
+          "vendor": "ASML",
+          "name": "High-NA EUV（0.55 NA）",
+          "status": "交付英特尔/台积电等",
+          "date": "2026-07-20",
+          "specs": {
+            "分辨率": "8 nm 以下，支撑 2nm 以下",
+            "单价": "约 3.5 亿欧元/台",
+            "出货": "欧洲当季设备销售为零（呼吁创造需求）"
+          },
+          "tech_highlights": [
+            "EUV 独家供应，全球垄断地位稳固",
+            "High-NA 用于 2nm 及以下逻辑与先进封装",
+            "欧洲需求疲软，依赖美/亚晶圆厂资本开支"
+          ],
+          "positioning": "光刻设备绝对龙头，AI 扩产刚性受益。",
+          "ticker": "ASML"
+        },
+        {
+          "id": "cadence_agent",
+          "country": "美国",
+          "vendor": "Cadence",
+          "name": "spec-to-RTL 设计智能体",
+          "status": "已发布",
+          "date": "2026-09-08",
+          "specs": {
+            "能力": "从规格描述自动生成 RTL/验证",
+            "协同": "与 Joules/Voltus 功耗签核联动",
+            "定位": "AI 驱动 EDA 全流程"
+          },
+          "tech_highlights": [
+            "大幅压缩 RTL 设计周期与人力",
+            "面向 3nm/2nm 复杂设计的收敛提速",
+            "EDA 三巨头（Cadence/Synopsys/Siemens）集体 Agent 化"
+          ],
+          "positioning": "芯片设计效率革命的工具底座。",
+          "ticker": "CDNS"
+        },
+        {
+          "id": "amat",
+          "country": "美国",
+          "vendor": "Applied Materials",
+          "name": "先进封装 / 沉积设备",
+          "status": "持续出货",
+          "date": "2026-08-15",
+          "specs": {
+            "领域": "CoWoS/SoIC 相关沉积与刻蚀",
+            "受益": "HBM 与先进封装扩产"
+          },
+          "tech_highlights": [
+            "受益于 2.5D/3D 封装产能扩张",
+            "与台积电/三星/Intel 代工协同",
+            "AI 相关设备订单占比提升"
+          ],
+          "positioning": "制程与封装设备核心供应商。",
+          "ticker": "AMAT"
+        },
+        {
+          "id": "naura",
+          "country": "中国",
+          "vendor": "北方华创",
+          "name": "刻蚀 / 薄膜 / 清洗设备平台",
+          "status": "持续出货",
+          "date": "2026-06-20",
+          "specs": {
+            "设备": "刻蚀、PVD/CVD、清洗、热处理全覆盖",
+            "节点": "14nm+ 成熟支撑，7nm 攻关",
+            "定位": "国产设备平台型龙头"
+          },
+          "tech_highlights": [
+            "平台化布局覆盖多类前道设备",
+            "受益国产产线国产化率提升",
+            "订单与营收随扩产高增"
+          ],
+          "positioning": "国产半导体设备平台龙头。",
+          "ticker": "002371.SZ"
+        },
+        {
+          "id": "amec",
+          "country": "中国",
+          "vendor": "中微公司",
+          "name": "刻蚀设备（CCP / ICP）",
+          "status": "持续出货",
+          "date": "2026-05-15",
+          "specs": {
+            "设备": "介质/金属刻蚀（Primo 系列）",
+            "节点": "具备 5nm 能力",
+            "定位": "刻蚀设备龙头"
+          },
+          "tech_highlights": [
+            "刻蚀设备进入先进逻辑与存储产线",
+            "MOCVD 等多元产品线",
+            "国产替代核心受益"
+          ],
+          "positioning": "国产刻蚀设备标杆。",
+          "ticker": "688012.SH"
+        },
+        {
+          "id": "acm_sh",
+          "country": "中国",
+          "vendor": "盛美上海",
+          "name": "单片清洗 / 电镀设备",
+          "status": "持续出货",
+          "date": "2026-04-20",
+          "specs": {
+            "设备": "单片清洗、电镀、立式炉管",
+            "定位": "清洗设备国产代表"
+          },
+          "tech_highlights": [
+            "差异化技术（SAPS/Tahoe）覆盖多工艺",
+            "受益先进制程与封装清洗需求",
+            "客户覆盖国内外晶圆厂"
+          ],
+          "positioning": "国产清洗设备龙头。",
+          "ticker": "688082.SH"
+        },
+        {
+          "id": "empyrean",
+          "country": "中国",
+          "vendor": "华大九天",
+          "name": "EDA（模拟/平板/数字）",
+          "status": "持续出货",
+          "date": "2026-03-25",
+          "specs": {
+            "产品": "模拟/混合信号、平板显示、数字后端",
+            "定位": "国产 EDA 龙头"
+          },
+          "tech_highlights": [
+            "模拟全流程 EDA 国产领先",
+            "受益信创与自主工具链诉求",
+            "与国产设计公司协同"
+          ],
+          "positioning": "国产 EDA 核心企业。",
+          "ticker": "301269.SZ"
+        },
+        {
+          "id": "nsig",
+          "country": "中国",
+          "vendor": "沪硅产业",
+          "name": "300mm 大硅片",
+          "status": "量产爬坡",
+          "date": "2026-02-25",
+          "specs": {
+            "产品": "12 英寸抛光片/外延片",
+            "定位": "半导体材料国产化"
+          },
+          "tech_highlights": [
+            "大硅片是晶圆制造基础材料",
+            "受益国产产线硅片本土化",
+            "产能与良率持续提升"
+          ],
+          "positioning": "国产大硅片主力。",
+          "ticker": "688126.SH"
+        },
+        {
+          "id": "tel",
+          "country": "日本",
+          "vendor": "东京电子 Tokyo Electron",
+          "name": "涂胶显影 / 刻蚀 / 沉积设备",
+          "status": "持续出货",
+          "date": "2026-07-10",
+          "specs": {
+            "设备": "涂胶显影全球领先、刻蚀、成膜",
+            "受益": "AI 先进封装与 HBM 扩产",
+            "定位": "设备巨头"
+          },
+          "tech_highlights": [
+            "涂胶显影（coater/developer）全球高份额",
+            "先进封装设备受益 HBM/2.5D 扩产",
+            "与美/日/台晶圆厂深度绑定"
+          ],
+          "positioning": "日本设备龙头，AI 扩产刚性受益。",
+          "ticker": "8035.T"
+        },
+        {
+          "id": "canon_nil",
+          "country": "日本",
+          "vendor": "Canon",
+          "name": "纳米压印光刻（FPA-1200NZ2C）",
+          "status": "出货",
+          "date": "2026-06-05",
+          "specs": {
+            "技术": "纳米压印（NIL），EUV 替代路线",
+            "节点": "约 5nm 等效",
+            "定位": "新光刻路线"
+          },
+          "tech_highlights": [
+            "以压印替代复杂光学，降低设备成本",
+            "面向存储/射频等特定场景",
+            "量产成熟度与缺陷率仍待验证"
+          ],
+          "positioning": "非 EUV 光刻路线的日本代表。",
+          "ticker": "7751.T"
+        },
+        {
+          "id": "nikon",
+          "country": "日本",
+          "vendor": "Nikon",
+          "name": "DUV 浸没式光刻",
+          "status": "持续出货",
+          "date": "2026-03-18",
+          "specs": {
+            "设备": "ArF 浸没式光刻",
+            "定位": "光刻设备"
+          },
+          "tech_highlights": [
+            "在 DUV 与面板光刻具竞争力",
+            "受益成熟节点与特色工艺扩产",
+            "与日本设备生态协同"
+          ],
+          "positioning": "日本光刻设备代表。",
+          "ticker": "7731.T"
+        },
+        {
+          "id": "globalwafers",
+          "country": "中国台湾",
+          "vendor": "环球晶圆 GlobalWafers",
+          "name": "硅晶圆（12/8 英寸）",
+          "status": "量产",
+          "date": "2026-02-18",
+          "specs": {
+            "产品": "抛光片/外延片/SOI",
+            "定位": "半导体材料"
+          },
+          "tech_highlights": [
+            "全球硅片重要供应商之一",
+            "长约锁定与海外扩产并行",
+            "受益 AI 带动的晶圆需求"
+          ],
+          "positioning": "中国台湾半导体材料龙头。",
+          "ticker": "6488.TW"
+        }
+      ]
+    },
+    {
+      "id": "foundry",
+      "name": "代工生态",
+      "desc": "先进制程与 CoWoS 封装产能是 AI 芯片交付的硬约束；成熟/特色工艺与国产代工是自主可控重点。",
+      "products": [
+        {
+          "id": "tsmc",
+          "country": "中国台湾",
+          "vendor": "TSMC（台积电）",
+          "name": "N3 / N2 + CoWoS 先进封装",
+          "status": "扩产中（新增 294 亿美元 CapEx）",
+          "date": "2026-09-25",
+          "specs": {
+            "制程": "N3 量产、N2 2025–26 导入",
+            "封装": "CoWoS-L/S 产能翻倍计划",
+            "资本开支": "追加 294 亿美元"
+          },
+          "tech_highlights": [
+            "Rubin/MI400 等旗舰均依赖 TSMC N3/N2",
+            "CoWoS 是 HBM 集成瓶颈，持续扩产仍紧张",
+            "OIP 生态整合 IP/EDA/封装，降低客户门槛"
+          ],
+          "positioning": "全球 AI 芯片制造的绝对中枢。",
+          "ticker": "TSM"
+        },
+        {
+          "id": "samsung_foundry",
+          "country": "韩国",
+          "vendor": "Samsung Foundry",
+          "name": "SF3 / SF2 制程",
+          "status": "追赶中",
+          "date": "2026-08-20",
+          "specs": {
+            "制程": "SF3 量产、SF2（2nm GAA）导入",
+            "封装": "I-Cube / H-Cube 先进封装"
+          },
+          "tech_highlights": [
+            "争夺 NVIDIA/AMD 第二来源订单",
+            "与自家 HBM 协同形成一体方案",
+            "良率与产能仍是关键变量"
+          ],
+          "positioning": "代工第二供应商，受益多元化趋势。",
+          "ticker": "005930.KS"
+        },
+        {
+          "id": "smic",
+          "country": "中国",
+          "vendor": "中芯国际 SMIC",
+          "name": "N+1 / N+2（7nm 级）/ 28nm",
+          "status": "量产 + 持续扩产",
+          "date": "2026-06-25",
+          "specs": {
+            "制程": "N+2（约 7nm 等效）/ 28nm 及成熟",
+            "产能": "多地新厂扩产中",
+            "定位": "国产代工龙头"
+          },
+          "tech_highlights": [
+            "国产先进与成熟制程核心承载者",
+            "在受限设备下推进产能爬坡",
+            "受益国产芯片设计公司流片需求"
+          ],
+          "positioning": "国产晶圆代工绝对主力。",
+          "ticker": "688981.SH / 0981.HK"
+        },
+        {
+          "id": "hua_hong",
+          "country": "中国",
+          "vendor": "华虹半导体",
+          "name": "特色工艺（功率 / 嵌入式）",
+          "status": "量产",
+          "date": "2026-03-15",
+          "specs": {
+            "工艺": "功率器件、IGBT、MCU、嵌入式 Flash",
+            "定位": "特色工艺代工"
+          },
+          "tech_highlights": [
+            "在功率与车规特色工艺具优势",
+            "受益新能源与汽车电子",
+            "与国产设计公司协同"
+          ],
+          "positioning": "国产特色工艺代工代表。",
+          "ticker": "1347.HK / 688347.SH"
+        },
+        {
+          "id": "rapidus",
+          "country": "日本",
+          "vendor": "Rapidus",
+          "name": "2nm GAA 代工（2027 试产）",
+          "status": "建设中",
+          "date": "2026-07-01",
+          "specs": {
+            "制程": "2nm GAA（2027 试产目标）",
+            "合作": "IBM PowerVia / 纳米片技术",
+            "定位": "日本先进代工"
+          },
+          "tech_highlights": [
+            "日本重振先进半导体的国家项目",
+            "采用背面供电（PowerVia）等前沿技术",
+            "与美/欧研究体系协同，量产良率待验证"
+          ],
+          "positioning": "日本先进制程希望所在。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "umc",
+          "country": "中国台湾",
+          "vendor": "联电 UMC",
+          "name": "成熟与特色制程代工",
+          "status": "量产",
+          "date": "2026-02-12",
+          "specs": {
+            "制程": "28nm 及以下成熟节点",
+            "定位": "成熟/特色工艺"
+          },
+          "tech_highlights": [
+            "在成熟节点具成本与良率优势",
+            "车规与 IoT 芯片代工稳定供给",
+            "与日本/新加坡产能协同"
+          ],
+          "positioning": "中国台湾成熟制程代工主力。",
+          "ticker": "2303.TW"
+        }
+      ]
+    },
+    {
+      "id": "interconnect",
+      "name": "互联与超节点",
+      "desc": "Scale-up（节点内）与 Scale-out（跨节点）互联决定集群有效算力。",
+      "products": [
+        {
+          "id": "nvlink6",
+          "country": "美国",
+          "vendor": "NVIDIA",
+          "name": "NVLink 6 / NVSwitch",
+          "status": "随 Rubin 出货",
+          "date": "2026-06-01",
+          "specs": {
+            "带宽": "3.6 TB/s/GPU（Scale-up）",
+            "拓扑": "NVL72 全互联非阻塞",
+            "网络": "Spectrum-X 以太网 + InfiniBand"
+          },
+          "tech_highlights": [
+            "把整架 GPU 视为单一「巨型加速器」",
+            "降低 MoE 通信开销，提升训练效率",
+            "DSX MaxLPS 可在同功耗下多布 40% GPU"
+          ],
+          "positioning": "机架级 AI 工厂的互联基石。",
+          "ticker": "NVDA"
+        },
+        {
+          "id": "huawei_supnode",
+          "country": "中国",
+          "vendor": "华为",
+          "name": "昇腾超节点互联",
+          "status": "规模部署",
+          "date": "2026-09-15",
+          "specs": {
+            "规模": "4,096 卡单域",
+            "算力": "8 EFLOPS FP8",
+            "总线": "自研高速互联"
+          },
+          "tech_highlights": [
+            "国产全栈互联，规避外部限制",
+            "支撑盘古大模型超大集群训练",
+            "软硬协同降低通信瓶颈"
+          ],
+          "positioning": "国产超节点标杆。",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "ali_cluster",
+          "country": "中国",
+          "vendor": "阿里",
+          "name": "灵骏 50 万卡集群",
+          "status": "规划 / 建设",
+          "date": "2026-09-20",
+          "specs": {
+            "规模": "50 万卡级",
+            "配套": "真武 V900 + CIPU",
+            "目标": "通义大模型训练推理"
+          },
+          "tech_highlights": [
+            "大规模异构调度与故障自愈",
+            "高带宽片间互联支撑并行效率",
+            "云上弹性供给 AI 算力"
+          ],
+          "positioning": "国内最大规模 AI 集群之一。",
+          "ticker": "BABA / 9988.HK"
+        }
+      ]
+    },
+    {
+      "id": "packaging",
+      "name": "先进封装",
+      "desc": "后摩尔时代算力密度提升的关键，HBM 与逻辑芯片的集成方式。",
+      "products": [
+        {
+          "id": "cowos",
+          "country": "中国台湾",
+          "vendor": "TSMC",
+          "name": "CoWoS（L / S 型）",
+          "status": "产能翻倍计划",
+          "date": "2026-09-25",
+          "specs": {
+            "用途": "GPU + HBM 2.5D 集成",
+            "瓶颈": "AI 芯片交付首要约束",
+            "扩张": "月产能持续爬坡"
+          },
+          "tech_highlights": [
+            "CoWoS-L 支持更大中介层与更多 HBM",
+            "良率与产能决定 Blackwell/Rubin 出货",
+            "台积电资本开支向封装倾斜"
+          ],
+          "positioning": "AI 芯片封装绝对主流。",
+          "ticker": "TSM"
+        },
+        {
+          "id": "soic",
+          "country": "中国台湾",
+          "vendor": "TSMC",
+          "name": "SoIC（3D 堆叠）",
+          "status": "导入高端产品",
+          "date": "2026-08-25",
+          "specs": {
+            "技术": "芯片对芯片直接混合键合",
+            "优势": "更短互连、更低功耗"
+          },
+          "tech_highlights": [
+            "3D 堆叠提升带宽密度",
+            "与 CoWoS 组合实现 2.5D+3D",
+            "面向下一代高带宽场景"
+          ],
+          "positioning": "先进封装前沿方向。",
+          "ticker": "TSM"
+        },
+        {
+          "id": "infoo",
+          "country": "美国",
+          "vendor": "Intel / OSAT",
+          "name": "InFO / EMIB",
+          "status": "量产",
+          "date": "2026-07-10",
+          "specs": {
+            "技术": "扇出型 / 嵌入式桥接",
+            "用途": "CPU/GPU 与 HBM 集成"
+          },
+          "tech_highlights": [
+            "EMIB 以硅桥实现高密度互连",
+            "与 Foveros 3D 组合",
+            "争取代工客户多元供给"
+          ],
+          "positioning": "x86 阵营先进封装主力。",
+          "ticker": "INTC"
+        },
+        {
+          "id": "jcet_xdfoi",
+          "country": "中国",
+          "vendor": "长电科技",
+          "name": "XDFOI 扇出型 3D 封装",
+          "status": "量产",
+          "date": "2026-04-05",
+          "specs": {
+            "技术": "高密度扇出（Fan-Out）3D 集成",
+            "定位": "国产先进封装"
+          },
+          "tech_highlights": [
+            "面向 HBM/小芯片（chiplet）集成",
+            "国产封装龙头，覆盖前道后道",
+            "受益国产算力芯片封装需求"
+          ],
+          "positioning": "国产先进封装核心。",
+          "ticker": "600584.SH"
+        },
+        {
+          "id": "tfme",
+          "country": "中国",
+          "vendor": "通富微电",
+          "name": "高性能封装（AMD 等合作）",
+          "status": "量产",
+          "date": "2026-03-08",
+          "specs": {
+            "客户": "AMD 等国际大厂",
+            "技术": "FCBGA / 2.5D 高端封装",
+            "定位": "高性能封测"
+          },
+          "tech_highlights": [
+            "深度绑定国际客户高端封测订单",
+            "受益 HBM 与算力芯片封装上量",
+            "国产封测出海代表"
+          ],
+          "positioning": "国产高性能封测龙头。",
+          "ticker": "002156.SZ"
+        },
+        {
+          "id": "ase_focos",
+          "country": "中国台湾",
+          "vendor": "日月光 ASE",
+          "name": "FOCoS 先进封装（OSAT）",
+          "status": "量产",
+          "date": "2026-05-12",
+          "specs": {
+            "技术": "扇出型封装（Fan-Out Chip on Substrate）",
+            "定位": "独立封测厂（OSAT）先进封装"
+          },
+          "tech_highlights": [
+            "全球最大 OSAT，先进封装覆盖 2.5D/3D",
+            "与晶圆厂协同承接 HBM 集成",
+            "受益 AI 封装需求外溢"
+          ],
+          "positioning": "中国台湾封测龙头，AI 封装受益。",
+          "ticker": "3711.TW"
+        }
+      ]
+    },
+    {
+      "id": "ems",
+      "name": "果链与电子制造服务（EMS / 组装代工）",
+      "desc": "Apple 供应链（果链）与中国台湾/大陆电子制造服务企业，是 AI 终端、服务器与可穿戴设备硬件落地的「最后一公里」，亦承接 AI 服务器代工。",
+      "products": [
+        {
+          "id": "luxshare",
+          "country": "中国",
+          "vendor": "立讯精密",
+          "name": "果链核心组装（AirPods / Watch / iPhone / Vision Pro）",
+          "status": "量产",
+          "date": "2026-05-18",
+          "specs": {
+            "业务": "AirPods、Apple Watch、iPhone 整机组装、Vision Pro 代工",
+            "进展": "持续获取 iPhone 组装份额，越南/印度布局",
+            "关联": "果链核心"
+          },
+          "tech_highlights": [
+            "从连接器向整机组装垂直延伸，份额持续提升",
+            "精密制造与自动化能力领先",
+            "AI 终端（含端侧 AI 设备）代工受益"
+          ],
+          "positioning": "中国大陆果链龙头。",
+          "ticker": "002475.SZ"
+        },
+        {
+          "id": "goertek",
+          "country": "中国",
+          "vendor": "歌尔股份",
+          "name": "声学 / 微器件 / VR-AR 代工",
+          "status": "量产",
+          "date": "2026-04-22",
+          "specs": {
+            "业务": "AirPods 声学、VR/AR 整机组装",
+            "关联": "果链 + Meta/字节 VR 链",
+            "定位": "精密声学与可穿戴代工"
+          },
+          "tech_highlights": [
+            "声学与微器件技术壁垒高",
+            "受益空间计算（Vision Pro/MR）放量",
+            "AI 可穿戴硬件制造核心"
+          ],
+          "positioning": "果链声学与 XR 代工代表。",
+          "ticker": "002241.SZ"
+        },
+        {
+          "id": "lens",
+          "country": "中国",
+          "vendor": "蓝思科技",
+          "name": "玻璃 / 金属中框 / 结构件",
+          "status": "量产",
+          "date": "2026-03-28",
+          "specs": {
+            "业务": "玻璃盖板、钛金属中框、后盖",
+            "关联": "果链结构件",
+            "定位": "外观件与结构件"
+          },
+          "tech_highlights": [
+            "玻璃与金属一体成型工艺领先",
+            "受益 AI 手机外观升级与钛金属化",
+            "新能源与智能汽车结构件拓展"
+          ],
+          "positioning": "果链外观件龙头。",
+          "ticker": "300433.SZ"
+        },
+        {
+          "id": "fii",
+          "country": "中国台湾",
+          "vendor": "工业富联（Foxconn / 鸿海）",
+          "name": "AI 服务器 EMS（NVIDIA HGX/GB 代工）",
+          "status": "量产（营收高增）",
+          "date": "2026-09-24",
+          "specs": {
+            "业务": "AI 服务器整机与基板代工（NVIDIA HGX/GB 系列）",
+            "进展": "AI 服务器营收同比高增，产能扩张",
+            "关联": "鸿海集团 AI 服务器核心臂"
+          },
+          "tech_highlights": [
+            "全球 AI 服务器代工龙头，直接受益算力扩张",
+            "液冷整机柜集成能力领先",
+            "与 NVIDIA/云厂商深度绑定"
+          ],
+          "positioning": "AI 算力硬件「制造中枢」。",
+          "ticker": "601138.SH"
+        },
+        {
+          "id": "byd_electronic",
+          "country": "中国",
+          "vendor": "比亚迪电子",
+          "name": "结构件 / 整机组装",
+          "status": "量产",
+          "date": "2026-04-02",
+          "specs": {
+            "业务": "金属/玻璃结构件、整机组装",
+            "关联": "果链 + 安卓旗舰",
+            "定位": "精密制造与组装"
+          },
+          "tech_highlights": [
+            "背靠比亚迪制造与材料体系",
+            "受益 AI 手机金属中框升级",
+            "汽车电子与智能终端协同"
+          ],
+          "positioning": "果链精密制造重要成员。",
+          "ticker": "0285.HK"
+        },
+        {
+          "id": "lingyi",
+          "country": "中国",
+          "vendor": "领益智造",
+          "name": "精密功能件 / 散热",
+          "status": "量产",
+          "date": "2026-03-30",
+          "specs": {
+            "业务": "精密功能件、散热模组、结构件",
+            "关联": "果链功能件",
+            "定位": "精密零组件"
+          },
+          "tech_highlights": [
+            "AI 终端散热与轻薄化关键供应商",
+            "受益端侧 AI 设备散热升级",
+            "新能源与机器人结构件拓展"
+          ],
+          "positioning": "果链功能件与散热代表。",
+          "ticker": "002600.SZ"
+        },
+        {
+          "id": "avary",
+          "country": "中国台湾",
+          "vendor": "鹏鼎控股（Avary）",
+          "name": "FPC / PCB 软板",
+          "status": "量产",
+          "date": "2026-02-22",
+          "specs": {
+            "业务": "柔性印刷电路板（FPC）与 HDI",
+            "关联": "果链软板核心",
+            "定位": "高端 PCB"
+          },
+          "tech_highlights": [
+            "高密 FPC 技术领先，受益端侧 AI 内部互连",
+            "与鸿海/台系组装生态协同",
+            "AI 服务器 PCB 需求外溢"
+          ],
+          "positioning": "果链软板龙头。",
+          "ticker": "002938.SZ"
+        },
+        {
+          "id": "wingtech",
+          "country": "中国",
+          "vendor": "闻泰科技",
+          "name": "ODM / 半导体",
+          "status": "量产",
+          "date": "2026-03-05",
+          "specs": {
+            "业务": "消费电子 ODM、车规半导体",
+            "关联": "安卓链 + 果链部分器件",
+            "定位": "ODM 与功率半导体"
+          },
+          "tech_highlights": [
+            "ODM 规模与车规半导体双布局",
+            "受益 AI 终端与汽车电子",
+            "功率器件国产替代"
+          ],
+          "positioning": "大陆 ODM 与半导体代表。",
+          "ticker": "600745.SH"
+        }
+      ]
+    }
+  ]
+}

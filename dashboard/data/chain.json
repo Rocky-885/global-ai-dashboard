@@ -1,0 +1,53 @@
+{
+  "updated": "2026-09-25",
+  "segments": [
+    {
+      "id": "design",
+      "icon": "🧩",
+      "name": "芯片 / 系统设计",
+      "desc": "定义算力架构与产品形态：GPU、NPU、ASIC 与超节点方案。决定 AI 工厂的峰值与能效上限。",
+      "players": ["NVDA", "AVGO", "AMD", "TSM", "BABA", "GOOGL"],
+      "tickers": ["NVDA", "AVGO", "AMD", "TSM"]
+    },
+    {
+      "id": "equip",
+      "icon": "🔬",
+      "name": "设备 / EDA / 代工",
+      "desc": "光刻、刻蚀、EDA 工具与晶圆代工，是先进制程与封装产能的「卖铲人」，决定扩产天花板。",
+      "players": ["ASML", "AMAT", "CDNS", "TSM", "005930.KS"],
+      "tickers": ["ASML", "AMAT", "CDNS", "TSM"]
+    },
+    {
+      "id": "memory",
+      "icon": "💾",
+      "name": "存储 / HBM / 封装",
+      "desc": "HBM 与先进封装是「内存墙」解法，也是 AI 军备竞赛的产能瓶颈与定价核心。",
+      "players": ["MU", "SK hynix", "Samsung", "TSM"],
+      "tickers": ["MU", "TSM"]
+    },
+    {
+      "id": "model",
+      "icon": "🧠",
+      "name": "大模型与多模态",
+      "desc": "旗舰模型、开源权重、多模态与 agent 能力，是 AI 价值的「大脑」层，驱动应用与算力需求。",
+      "players": ["MSFT", "GOOGL", "META", "OpenAI", "Anthropic", "DeepSeek", "BABA"],
+      "tickers": ["MSFT", "GOOGL", "META", "BABA"]
+    },
+    {
+      "id": "cloud",
+      "icon": "☁️",
+      "name": "云与软件巨头",
+      "desc": "以云算力、模型平台与终端应用变现，承担最大的 CapEx 并主导需求侧。",
+      "players": ["MSFT", "GOOGL", "AMZN", "META", "AAPL"],
+      "tickers": ["MSFT", "GOOGL", "AMZN", "META", "AAPL"]
+    },
+    {
+      "id": "macro",
+      "icon": "📊",
+      "name": "宏观与利率环境",
+      "desc": "美/日/欧 GDP、10Y 国债收益率与核心股指，决定高估值科技资产的折现环境与风险偏好。",
+      "players": ["US10Y", "JP10Y", "DE10Y", "纳斯达克100", "标普500", "日经225", "欧洲斯托克50"],
+      "tickers": []
+    }
+  ]
+}

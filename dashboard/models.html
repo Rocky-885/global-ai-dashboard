@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 模型发布与进展 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="models">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item is-active" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container">
+
+  <div class="summary"><span class="badge">栏目说明</span>
+    <span id="mdSummary">加载中…</span></div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🧠 模型数据库</h2><span class="ln"></span></div>
+    <div class="model-grid" id="mdGrid"></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>⚖️ 横向对比</h2><span class="ln"></span></div>
+    <div class="table-scroll"><div id="mdCompare"></div></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🚀 能力趋势</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>上下文窗口竞赛</b>：主流旗舰已达 1M tokens，GPT-6 Astra / Gemini / Qwen 系列在 1.05M 级；长上下文推理与「上下文内检索」成为标配。</li>
+      <li><b>推理与 Agent 化</b>：Claude Opus 5.5 推理成本降 40%、OpenAI 强化 reasoning，模型从「生成」走向「执行」（调用工具、跑代码、长程任务）。</li>
+      <li><b>多模态与实时</b>：Gemini 3.8 Live Avatar、Kimi 原生图像/视频输入，模型原生理解音视频与界面。</li>
+      <li><b>开源权重崛起</b>：DeepSeek V4 Pro、Qwen、Llama 4、GLM-5.2、MiMo、Kimi 等以 MIT/Modified-MIT 许可提供权重，压缩与高效注意力（CSA/HCA）降低推理成本。</li>
+      <li><b>参数规模化</b>：Qwen 4 规划 4–10 万亿参数（稀疏 MoE），前沿模型持续在规模与激活效率间权衡。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🗓️ 发布时间线</h2><span class="ln"></span></div>
+    <div class="timeline" id="mdTimeline"></div>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

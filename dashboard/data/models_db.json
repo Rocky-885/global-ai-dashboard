@@ -1,0 +1,205 @@
+{
+  "updated": "2026-09-26",
+  "summary": "面向金融与科技关注者的 AI 模型数据库：覆盖旗舰大模型、多模态、开源、推理/agent 等方向，记录参数规模、上下文、关键能力、基准、开源与定价等字段，便于横向对比与跟踪产业进展。综合自各家官方披露与公开评测（2026-08 至 2026-09）。",
+  "models": [
+    {
+      "id": "claude_opus55",
+      "vendor": "Anthropic",
+      "name": "Claude Opus 5.5",
+      "date": "2026-09-22",
+      "type": "旗舰大模型",
+      "params": "未公开（推测 ~1T 级 MoE）",
+      "context": "1,000,000 tokens",
+      "highlights": [
+        "推理/调用成本较上代下降约 40%",
+        "Fast Mode 低延迟生产部署",
+        "强写作、科学推理与 agentic 工具调用"
+      ],
+      "benchmarks": "GPQA Diamond ~92%（4.8 代际水平），SWE-bench Verified 强",
+      "open_source": false,
+      "pricing": "约 $15 / $75 每百万 in/out（估）",
+      "ticker": "AMZN（战略投资方）"
+    },
+    {
+      "id": "gpt6_astra",
+      "vendor": "OpenAI",
+      "name": "GPT-6 Astra / Sol / Luna",
+      "date": "2026-09-18",
+      "type": "旗舰大模型家族",
+      "params": "未公开",
+      "context": "1,050,000 tokens（最长上下文，生产可用）",
+      "highlights": [
+        "Astra 为当前最长生产上下文（1.05M）",
+        "Sol/Luna 为低成本档，API 价格较上代约减半",
+        "强化 reasoning 与 agentic 能力，贡献新型数学证明"
+      ],
+      "benchmarks": "Frontier 级推理；长上下文 >272K 触发 2× 输入 / 1.5× 输出溢价",
+      "open_source": false,
+      "pricing": "Sol 短上下文 $5/$30、长上下文 $10/$45 每百万；Luna 低至 $0.2/$1.2",
+      "ticker": "MSFT（最大股东/云）"
+    },
+    {
+      "id": "gemini4",
+      "vendor": "Google",
+      "name": "Gemini 4（含 3.x 系列）",
+      "date": "2026-09-16",
+      "type": "旗舰多模态大模型",
+      "params": "未公开（稀疏 MoE）",
+      "context": "1,048,576 tokens（Pro）；Flash 系列同档",
+      "highlights": [
+        "Gemini 4 进入 post-training 阶段",
+        "Gemini 3.8 Live Avatar 支持实时数字人/视频交互",
+        "GPQA Diamond 公开最高 ~94.3%",
+        "Google Cloud 多区域合规成熟"
+      ],
+      "benchmarks": "GPQA Diamond 94.3%（3.1 Pro）；吞吐 ~130+ tok/s",
+      "open_source": false,
+      "pricing": "Pro 约 $2 / $12 每百万 in/out",
+      "ticker": "GOOGL"
+    },
+    {
+      "id": "qwen4",
+      "vendor": "阿里巴巴",
+      "name": "Qwen 4 系列（规划）",
+      "date": "2026-09-14",
+      "type": "旗舰 + 开源大模型",
+      "params": "规划 4 – 10 万亿参数（稀疏 MoE）",
+      "context": "1,000,000+ tokens（Qwen3.8-Max 达 1,131,072）",
+      "highlights": [
+        "参数规模对标前沿，覆盖闭源旗舰与开源轻量",
+        "Qwen3.7-Max 曾登中文模型榜首（Artificial Analysis 指数 56.6）",
+        "开源权重生态（DashScope OpenAI 兼容）"
+      ],
+      "benchmarks": "中文场景领先；Intelligence Index 中国模型最高分",
+      "open_source": true,
+      "pricing": "闭源 Max $2.5 / $7.5 每百万；开源权重可自部署",
+      "ticker": "BABA / 9988.HK"
+    },
+    {
+      "id": "deepseek_v41",
+      "vendor": "DeepSeek",
+      "name": "DeepSeek V4.1 Flash / V4 Pro",
+      "date": "2026-09-12",
+      "type": "开源 + 旗舰 MoE",
+      "params": "V4 Pro：1.6T 总 / 49B 激活（MoE，CSA+HCA 混合注意力）",
+      "context": "1,000,000 tokens；最大输出 384,000",
+      "highlights": [
+        "推理 FLOPs 仅标准 1M 上下文 transformer 的 27%",
+        "MIT 许可开源；API 价 $0.435/$0.87 每百万（长期 75 折）",
+        "SWE-bench Verified 80.6%、GPQA Diamond 90.1%"
+      ],
+      "benchmarks": "LiveCodeBench 93.5%、MMLU-Pro 87.5%；Chatbot Arena 1456",
+      "open_source": true,
+      "pricing": "$0.435 / $0.87 每百万 in/out",
+      "ticker": "—（未上市）"
+    },
+    {
+      "id": "grok47",
+      "vendor": "xAI",
+      "name": "Grok 4.7",
+      "date": "2026-09-10",
+      "type": "旗舰大模型",
+      "params": "未公开",
+      "context": "1,000,000 tokens（官方；部分目录曾列 2M）",
+      "highlights": [
+        "与 X 平台实时数据深度整合",
+        "强推理与代码能力",
+        "面向实时问答与 agent 场景"
+      ],
+      "benchmarks": "Frontier 级推理",
+      "open_source": false,
+      "pricing": "随 X Premium / API 分层",
+      "ticker": "TSLA（马斯克系）"
+    },
+    {
+      "id": "mimo_v26",
+      "vendor": "小米",
+      "name": "MiMo-V2.6-Pro",
+      "date": "2026-09-19",
+      "type": "开源模型（登顶）",
+      "params": "未公开（MoE）",
+      "context": "1,000,000 tokens",
+      "highlights": [
+        "开源榜单登顶，主打高性价比推理",
+        "面向端侧/云端混合部署",
+        "与小米澎湃 OS / 汽车座舱协同"
+      ],
+      "benchmarks": "开源综合榜领先",
+      "open_source": true,
+      "pricing": "开源权重可自部署",
+      "ticker": "1810.HK"
+    },
+    {
+      "id": "llama4",
+      "vendor": "Meta",
+      "name": "Llama 4 系列",
+      "date": "2026-08-28",
+      "type": "开源旗舰 MoE",
+      "params": "多档 MoE（含超大激活）",
+      "context": "1,000,000 tokens（Sonnet 5 同代际）",
+      "highlights": [
+        "最大规模开源权重之一，生态最广",
+        "与 Meta AI / 广告推荐系统深度集成",
+        "支撑第三方与内部 agent 应用"
+      ],
+      "benchmarks": "中上游推理；生态价值高",
+      "open_source": true,
+      "pricing": "开源权重可自部署 / 托管",
+      "ticker": "META"
+    },
+    {
+      "id": "glm52",
+      "vendor": "智谱（Zhipu）",
+      "name": "GLM-5.2",
+      "date": "2026-08-22",
+      "type": "开源 + 闭源旗舰",
+      "params": "未公开（MoE）",
+      "context": "1,048,576 tokens",
+      "highlights": [
+        "Artificial Analysis Intelligence Index v4.1 第 5（开源权重中领先）",
+        "代码质量接近闭源前沿，价格约 GPT-5.5 的 1/6",
+        "企业自托管友好"
+      ],
+      "benchmarks": "Intelligence Index 第 5；强代码",
+      "open_source": true,
+      "pricing": "开源自部署；托管按 hos 定价",
+      "ticker": "—（未上市）"
+    },
+    {
+      "id": "kimi_k3",
+      "vendor": "Moonshot AI（月之暗面）",
+      "name": "Kimi K3",
+      "date": "2026-08-18",
+      "type": "开源多模态 agent 模型",
+      "params": "1T 总 / 32B 激活（MoE，384 专家）",
+      "context": "1,048,576 tokens；最大输出等同全窗口",
+      "highlights": [
+        "原生图像/视频输入（截图、PDF、表格）",
+        "支持 300 子 agent、4,000 步长程编码",
+        "Modified MIT 许可"
+      ],
+      "benchmarks": "长程 agentic 编码强",
+      "open_source": true,
+      "pricing": "开源权重可自部署",
+          "ticker": "—（未上市）"
+        },
+        {
+          "id": "gpt5_5",
+          "vendor": "OpenAI",
+          "name": "GPT-5.5",
+          "date": "2026-09-26",
+          "type": "旗舰通用大模型",
+          "params": "未公开（稀疏 MoE）",
+          "context": "1,000,000 tokens",
+          "highlights": [
+            "登顶 Terminal-Bench 2.0 代理编程榜（82.7% 综合得分）",
+            "通用推理与工具调用强，单价约 $35/M",
+            "与 GPT-6 家族形成高低搭配"
+          ],
+          "benchmarks": "Terminal-Bench 2.0 82.7%（第一）；OSWorld 2.0、SWE-bench 强",
+          "open_source": false,
+          "pricing": "约 $35 / $175 每百万 in/out（估；Terminal-Bench 榜单价 $35）",
+          "ticker": "MSFT"
+        }
+      ]
+}

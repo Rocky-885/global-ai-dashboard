@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 产业链全景 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="chain">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item is-active" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container">
+
+  <div class="summary"><span class="badge">栏目说明</span>
+    <span>从芯片设计到云应用的六环节产业链，标注各环节关键玩家与关联标的。完整产品/模型信息见对应栏目。</span></div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🔗 产业链全景（设计 → 云应用）</h2><span class="ln"></span></div>
+    <div class="chain-flow" id="chainFlow"></div>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🧩 环节要点</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>芯片/系统设计</b>：算力架构定义者（NVDA/AVGO/AMD），决定性能与能效上限。</li>
+      <li><b>设备/EDA/代工</b>：ASML、AMAT、Cadence 与台积电是扩产「卖铲人」，产能即天花板。</li>
+      <li><b>存储/HBM/封装</b>：HBM 是「内存墙」解法，也是当前最紧的产能瓶颈与定价核心。</li>
+      <li><b>大模型/多模态</b>：价值「大脑」层，开源与闭源并进，驱动下游算力需求。</li>
+      <li><b>云与软件巨头</b>：最大 CapEx 支出方与需求侧，决定产业链景气方向。</li>
+      <li><b>宏观/利率</b>：折现环境与风险偏好，直接影响高估值科技资产定价。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📌 关联标的速览</h2><span class="ln"></span></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>环节</th><th>核心标的</th><th>关联栏目</th></tr></thead>
+        <tbody>
+          <tr><td>算力芯片</td><td>NVDA / AVGO / AMD / TSM</td><td><a href="hardware.html">AI 硬件</a></td></tr>
+          <tr><td>设备/EDA/代工</td><td>ASML / AMAT / CDNS / TSM</td><td><a href="hardware.html">AI 硬件</a></td></tr>
+          <tr><td>存储/HBM</td><td>MU / SK hynix / Samsung</td><td><a href="hardware.html">AI 硬件</a></td></tr>
+          <tr><td>大模型</td><td>MSFT / GOOGL / META / BABA + OpenAI/Anthropic/DeepSeek</td><td><a href="models.html">AI 模型</a></td></tr>
+          <tr><td>云软件</td><td>MSFT / GOOGL / AMZN / META / AAPL</td><td><a href="software.html">AI 软件云</a></td></tr>
+          <tr><td>宏观利率</td><td>US10Y / JP10Y / DE10Y + 核心股指</td><td><a href="macro.html">宏观市场</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

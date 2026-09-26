@@ -1,0 +1,55 @@
+{
+  "updated": "2026-09-25",
+  "summary": "面向消费者（本科以上科技爱好者、预算敏感型）的 AI 端侧硬件追踪：AI PC / 消费级显卡 / AI 手机 / 迷你主机。核心判断指标是 NPU TOPS（Copilot+ PC 门槛 40 TOPS）、显存/统一内存（本地跑 7B–70B 模型的关键）与整机价格档位。价格为主流电商参考价（人民币），会随促销波动。",
+  "price_bands": [
+    { "id": "entry", "name": "入门档", "range": "¥5,000 以下", "can_do": "本地跑 3B–7B 量化模型、AI 摄像头/语音助手、轻度 AI 修图", "note": "适合文字办公 + 尝鲜端侧 AI，NPU 10–40 TOPS 为主" },
+    { "id": "mainstream", "name": "主流档", "range": "¥5,000 – 10,000", "can_do": "流畅本地 7B–14B 模型、Copilot+ 全功能、本地 RAG 知识库、AI 视频剪辑加速", "note": "性价比甜点区，NPU 40–50 TOPS + 32GB 内存是分水岭" },
+    { "id": "pro", "name": "高端档", "range": "¥10,000 – 20,000", "can_do": "本地 14B–32B 模型、RTX 显卡本地 SD/视频生成、多模态推理", "note": "独立显卡 12–24GB 显存，AI 创作者主力档" },
+    { "id": "flagship", "name": "旗舰档", "range": "¥20,000 以上", "can_do": "本地 70B+ 模型、多卡/大显存工作流、专业生成式创作", "note": "预算无上限的发烧友/专业工作室" }
+  ],
+  "min_spec_advice": [
+    "本地跑 7B 模型（Q4 量化）：≥16GB 内存/显存，NPU 或 GPU 均可，速度 10–25 token/s",
+    "本地跑 14B 模型（Q4）：≥24GB 显存（如 RTX 4090/5080 级）或 32GB 统一内存（Apple M 系列）",
+    "本地跑 70B 模型：≥48GB 显存或 64GB+ 统一内存，普通用户建议直接走云端 API",
+    "Copilot+ PC 认证门槛：NPU ≥40 TOPS + 16GB 内存 + 256GB 存储"
+  ],
+  "categories": [
+    {
+      "id": "aipc",
+      "name": "💻 AI PC / 笔记本",
+      "desc": "NPU 驱动的下一代笔记本：看 NPU TOPS（≥40 达 Copilot+ 门槛）、内存（建议 32GB 起步）、续航与屏幕。"
+    },
+    {
+      "id": "gpu",
+      "name": "🎮 消费级 AI 显卡",
+      "desc": "本地 AI 的算力核心：看显存（AI 生成任务显存 > 一切）、Tensor Core 代数与能效比。"
+    },
+    {
+      "id": "phone",
+      "name": "📱 AI 手机",
+      "desc": "端侧大模型进入旗舰手机：看 NPU TOPS、端侧模型参数量（7B 级成为 2026 旗舰标配）与 AI 影像。"
+    },
+    {
+      "id": "minipc",
+      "name": "🖥️ 迷你主机 / 桌面 AI",
+      "desc": "桌面端侧 AI 节点：可 7×24 挂本地模型/RAG 知识库，性价比高于同配置笔记本。"
+    }
+  ],
+  "products": [
+    { "id": "aipc-macbook-m5", "cat": "aipc", "vendor": "Apple", "name": "MacBook Pro 14\" (M5)", "price": "¥12,999 起", "price_num": 12999, "band": "pro", "npu": "38 TOPS (Neural Engine)", "specs": { "SoC": "M5（3nm，第二代 UltraFusion 就绪）", "内存": "16–32GB 统一内存（LPDDR5X）", "GPU": "10 核，支持光线追踪 + Dynamic Caching", "AI 能力": "端侧跑 Apple Intelligence；本地 7B 模型 ~35 token/s", "续航": "最长 24 小时" }, "ai_features": ["Apple Intelligence 全功能（写作/图像/ Siri 大模型版）", "统一内存架构本地跑 MLX 模型效率高", "Core ML 与 MLX 生态对开发者友好"], "value_note": "本档最强'能效比 AI 机'：统一内存跑本地模型表现好、噪音低，但 NPU TOPS 数字不高、不能装 CUDA 生态，适合 Apple 全家桶用户。", "date": "2026-09-15", "status": "在售", "ticker": "AAPL" },
+    { "id": "aipc-thinkpad-x1-aura", "cat": "aipc", "vendor": "联想", "name": "ThinkPad X1 Carbon Aura (Lunar Lake)", "price": "¥9,999 起", "price_num": 9999, "band": "mainstream", "npu": "48 TOPS", "specs": { "平台": "Intel Core Ultra 7 268V (Lunar Lake)", "内存": "32GB LPDDR5X（板载）", "NPU": "第四代 NPU 48 TOPS，平台算力 120 TOPS", "重量": "约 986g", "续航": "官方 22 小时视频" }, "ai_features": ["Copilot+ PC 全功能（Recall / Studio Effects / Live Captions）", "本地 7B 模型流畅（OpenVINO 加速）", "续航与噪音控制是同档最佳之一"], "value_note": "万元内商务 AI 本标杆：48 TOPS 过 Copilot+ 线、32GB 内存到位；缺点核显游戏弱。商务办公 + 端侧 AI 的稳妥选择。", "date": "2026-06-01", "status": "在售" },
+    { "id": "aipc-yoga-air15", "cat": "aipc", "vendor": "联想", "name": "YOGA Air 15 Aura AI 元启版", "price": "¥7,499 起", "price_num": 7499, "band": "mainstream", "npu": "48 TOPS", "specs": { "平台": "Intel Core Ultra 7 258V", "内存": "32GB LPDDR5X", "屏幕": "15.3\" 3K 120Hz", "电池": "70Wh" }, "ai_features": ["Copilot+ PC 全功能", "联想小天个人智能体（本地+云混合）", "3K 高刷屏适合 AI 修图"], "value_note": "主流档甜点：32GB + 48 TOPS 压到 7.5K 价位段，'买新不买旧'的典型标的。", "date": "2026-05-20", "status": "在售" },
+    { "id": "aipc-zenbook-a14", "cat": "aipc", "vendor": "华硕", "name": "灵耀 14 Air (骁龙 X Elite)", "price": "¥6,999 起", "price_num": 6999, "band": "mainstream", "npu": "45 TOPS", "specs": { "平台": "Snapdragon X Elite X1E-78-100", "内存": "32GB LPDDR5X", "重量": "约 960g（Ceralumum 陶瓷铝）", "续航": "官方 26 小时" }, "ai_features": ["Copilot+ PC（骁龙阵营首批）", "本地模型走 QNN/NPU 生态，兼容性持续改善", "960g + 长续航 = 移动办公利器"], "value_note": "骁龙阵营性价比之选：够轻够久、价格到位；注意 x86 软件兼容与游戏生态仍是短板。", "date": "2026-04-10", "status": "在售" },
+    { "id": "aipc-红米-book16", "cat": "aipc", "vendor": "Redmi", "name": "RedmiBook 16 2026 AI 版", "price": "¥4,299 起", "price_num": 4299, "band": "entry", "npu": "~13 TOPS", "specs": { "平台": "Intel Core Ultra 5 225H（Arrow Lake-H）", "内存": "32GB DDR5", "屏幕": "16\" 2.5K 165Hz", "NPU": "约 13 TOPS（未达 Copilot+ 门槛）" }, "ai_features": ["小米 AI 办公助手（本地语音/纪要）", "端侧 AI 修图/抠图", "未过 Copilot+ 线但 32GB 大内存可跑 7B 量化模型"], "value_note": "入门档'内存给足'的代表：4K 价位拿到 32GB + 2.5K 165Hz，NPU 弱但 GPU 可补位跑本地模型。预算有限的 AI 尝鲜首选。", "date": "2026-03-01", "status": "在售" },
+    { "id": "gpu-rtx5080", "cat": "gpu", "vendor": "NVIDIA", "name": "GeForce RTX 5080", "price": "¥8,999 – 9,999", "price_num": 9499, "band": "pro", "npu": "AI 算力 ~1,800 TOPS (FP4 Sparse)", "specs": { "架构": "Blackwell（GB203）", "显存": "16GB GDDR7，960 GB/s", "AI 算力": "FP4 稀疏 ~1,800 TOPS；FP16 ~449 TOPS", "TGP": "360W", "DLSS": "DLSS 4 多帧生成" }, "ai_features": ["本地 SD/Flux 出图与视频生成（Wan/可灵开源模型）第一梯队", "16GB 显存可跑 14B Q4 / 7B FP8 本地大模型", "DLSS 4 对游戏 AI 超分体验拉满"], "value_note": "万元级本地 AI 创作主力：显存 16GB 是'够用但不奢侈'的档位，游戏 + AI 双修。想跑 32B 以上模型请上 5090 或加内存的 Apple 方案。", "date": "2026-01-30", "status": "在售", "ticker": "NVDA" },
+    { "id": "gpu-rtx5070ti", "cat": "gpu", "vendor": "NVIDIA", "name": "GeForce RTX 5070 Ti", "price": "¥6,299 – 6,999", "price_num": 6499, "band": "pro", "npu": "AI 算力 ~1,400 TOPS (FP4 Sparse)", "specs": { "架构": "Blackwell（GB203 精简）", "显存": "16GB GDDR7，896 GB/s", "TGP": "300W", "定位": "2K 高刷 + 本地 AI 入门创作" }, "ai_features": ["16GB 显存跑 7B/14B 量化模型无压力", "本地出图速度快于上代 4070Ti 约 1.7x", "性价比最高的'16GB 显存'门票"], "value_note": "6.5K 价位拿下 16GB GDDR7，是'预算 <7K 又想认真玩本地 AI'的最优解之一。", "date": "2026-02-20", "status": "在售", "ticker": "NVDA" },
+    { "id": "gpu-rx9070xt", "cat": "gpu", "vendor": "AMD", "name": "Radeon RX 9070 XT", "price": "¥4,999 – 5,499", "price_num": 5199, "band": "mainstream", "npu": "AI 算力 ~421 TOPS (INT4 Sparse)", "specs": { "架构": "RDNA 4（Navi 48）", "显存": "16GB GDDR6，640 GB/s", "TGP": "304W", "AI 生态": "ROCm 桌面支持持续完善" }, "ai_features": ["5K 档 16GB 显存，比同价 NV 卡显存带宽便宜", "AI 出图可用（ComfyUI/ROCm），大模型推理生态弱于 CUDA", "光追游戏性能大幅改善"], "value_note": "价格屠夫：5K 出头 16GB 显存，游戏性价比极高；本地大模型生态仍不如 NVIDIA 顺畅，适合游戏为主 + AI 尝鲜。", "date": "2026-03-05", "status": "在售", "ticker": "AMD" },
+    { "id": "gpu-intel-b60", "cat": "gpu", "vendor": "Intel", "name": "Arc B60（24GB 显存特供）", "price": "¥4,599 – 4,999", "price_num": 4799, "band": "mainstream", "npu": "AI 算力 ~180 TOPS", "specs": { "架构": "Xe2（BMG-G21）", "显存": "24GB GDDR6（同价位独一份）", "TGP": "200W", "生态": "IPEX-LLM / SYCL" }, "ai_features": ["24GB 显存跑 14B–32B 量化大模型，同价位无对手", "IPEX-LLM 社区活跃，跑 Ollama/vLLM 支持改善", "游戏性能与驱动成熟度弱于 NV/AMD"], "value_note": "'显存优先'的极客之选：不到 5K 拿 24GB 显存跑 32B 模型，性价比无解；但要有折腾心理准备（驱动/生态）。适合纯 AI 推理副卡。", "date": "2026-05-01", "status": "在售", "ticker": "INTC" },
+    { "id": "phone-xiaomi-17ultra", "cat": "phone", "vendor": "小米", "name": "小米 17 Ultra", "price": "¥6,499 起", "price_num": 6499, "band": "mainstream", "npu": "~80 TOPS（第六代 NPU）", "specs": { "SoC": "骁龙 8 Elite Gen 5（3nm）", "内存": "16GB LPDDR6", "端侧模型": "小米 MiLM 7B 级端侧模型常驻", "影像": "1\" 主摄 + 200MP 潜望长焦", "电池": "6,500mAh 硅碳负极" }, "ai_features": ["端侧 7B 模型：离线通话摘要/实时翻译/图像理解", "AI 影像：端侧语义编辑 + 超分", "澎湃 AI OS 深度整合"], "value_note": "安卓端侧 AI 标杆：80 TOPS + 16GB 内存让 7B 模型真正'常驻'本地；影像与 AI 结合是差异化卖点。", "date": "2026-09-10", "status": "在售" },
+    { "id": "phone-iphone17pro", "cat": "phone", "vendor": "Apple", "name": "iPhone 17 Pro", "price": "¥8,999 起", "price_num": 8999, "band": "pro", "npu": "~35 TOPS (A19 Pro Neural Engine)", "specs": { "SoC": "A19 Pro（N3P，12GB 内存）", "端侧模型": "Apple Intelligence ~3B 端侧 + Private Cloud Compute", "影像": "4,800MP 三摄 + 端侧语义影像", "电池": "铝金属一体成型 + 均热板散热" }, "ai_features": ["端侧 3B + 云端私有云混合推理（隐私卖点）", "Visual Intelligence 实时识物", "Genmoji / 图像操场端侧生成"], "value_note": "AI 功能'体验好但参数低调'路线：NPU TOPS 数字不大但软硬件协同到位，隐私路径（PCC）独特。生态锁定是双刃剑。", "date": "2026-09-12", "status": "在售", "ticker": "AAPL" },
+    { "id": "phone-华为-mate80", "cat": "phone", "vendor": "华为", "name": "Mate 80 Pro（麒麟 9030）", "price": "¥6,999 起", "price_num": 6999, "band": "mainstream", "npu": "~60 TOPS", "specs": { "SoC": "麒麟 9030（国产 7nm 级）", "内存": "16GB", "端侧模型": "盘古 5B 端侧 + 小艺大模型", "影像": "可变光圈主摄 + 红外遥感", "系统": "HarmonyOS 6（AI 原生）" }, "ai_features": ["小艺接入盘古+DeepSeek 双模型（端云协同）", "AI 隐私通话/隔空操作/多语种实时翻译", "国产链自主可控代表"], "value_note": "国产端侧 AI 全链路（芯片-系统-模型）代表机型；生态独立于安卓/iOS，适合看重自主可控与鸿蒙生态的用户。", "date": "2026-08-25", "status": "在售" },
+    { "id": "minipc-rog-nuc-g200", "cat": "minipc", "vendor": "华硕 ROG", "name": "ROG NUC G200（RTX 5080 迷你旗舰）", "price": "¥16,999 起", "price_num": 16999, "band": "flagship", "npu": "RTX 5080 笔记本版 ~1,600 TOPS (FP4)", "specs": { "平台": "Core Ultra 9 275HX + RTX 5080 Laptop 16GB", "内存": "32GB DDR5（可扩 64GB）", "体积": "2.5L", "散热": "双风扇液金" }, "ai_features": ["2.5L 体积塞进 16GB 显存 5080，客厅/书房本地 AI 站", "可 7×24 跑本地出图/小模型服务", "噪音控制好于同性能塔式机"], "value_note": "'不想要大机箱'的旗舰方案：性能接近台式 5080，价格贵约 20% 为体积买单。适合桌面空间紧张又想本地跑 14B/出图的玩家。", "date": "2026-04-18", "status": "在售" },
+    { "id": "minipc-零刻-gti15", "cat": "minipc", "vendor": "零刻", "name": "零刻 GTi15 Ultra（迷你 AI 主机）", "price": "¥3,699 起", "price_num": 3699, "band": "entry", "npu": "~13 TOPS", "specs": { "平台": "Intel Core Ultra 5 125H", "内存": "32GB DDR5（双通道可换）", "存储": "1TB PCIe4.0", "体积": "0.7L" }, "ai_features": ["0.7L 体积挂 Alist+Ollama 做 7B 模型家庭服务器", "32GB 内存跑 7B Q4 模型 ~8–12 token/s", "功耗低适合 7×24"], "value_note": "入门档'家庭 AI 服务器'最佳性价比之一：3.7K 拿 32GB，功耗 30W 级常年在线跑本地知识库/RAG。算力弱于独显方案，胜在便宜省电。", "date": "2026-02-10", "status": "在售" },
+    { "id": "minipc-苹果-macstudio-m5", "cat": "minipc", "vendor": "Apple", "name": "Mac Studio (M5 Ultra 预期)", "price": "¥24,999 起（预期）", "price_num": 24999, "band": "flagship", "npu": "Neural Engine ~80 TOPS（Ultra 双芯）", "specs": { "SoC": "M5 Ultra（预期：双 die UltraFusion）", "统一内存": "最高 256GB（预期）", "AI 能力": "统一内存 256GB 可本地跑 100B+ 模型", "接口": "雷雳 5 ×6" }, "ai_features": ["本地跑 100B+ 大模型的'平民'唯一解之一", "MLX 生态推理效率高、功耗低（<300W）", "多用户共享的桌面推理服务器"], "value_note": "旗舰档'本地大模型终结者'：大统一内存跑超大模型的能力同价位无对手，但要等 M5 Ultra 正式发布；适合愿意为'完全本地私有'付费的用户。", "date": "2026-12-01", "status": "未发布（预期）", "ticker": "AAPL" }
+  ]
+}

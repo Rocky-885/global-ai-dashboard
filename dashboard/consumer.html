@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>消费者级 AI 硬件 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="consumer">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item is-active" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<main class="container">
+
+  <div class="summary"><span class="badge">栏目定位</span>
+    <span id="consSummary">加载中…</span></div>
+
+  <!-- 价位档速查 -->
+  <div class="block">
+    <div class="sec-ttl"><h2>💰 价位档速查（预算 → 能做什么）</h2><span class="ln"></span></div>
+    <div class="band-grid" id="consBands"></div>
+    <div class="pc-pos" style="margin-top:14px">
+      <b>📖 本地大模型最低配置参考：</b>
+      <ul id="consAdvice" class="pc-hl" style="margin-top:6px"></ul>
+    </div>
+  </div>
+
+  <!-- 筛选条 -->
+  <div class="filter-bar" id="consFilters">
+    <span class="flt-label">品类：</span>
+    <button class="flt active" data-c="all">🌐 全部</button>
+    <button class="flt" data-c="aipc">💻 AI PC</button>
+    <button class="flt" data-c="gpu">🎮 显卡</button>
+    <button class="flt" data-c="phone">📱 AI 手机</button>
+    <button class="flt" data-c="minipc">🖥️ 迷你主机</button>
+    <span class="flt-label" style="margin-left:14px">预算：</span>
+    <button class="flt active" data-b="all">不限</button>
+    <button class="flt" data-b="entry">&lt;¥5,000</button>
+    <button class="flt" data-b="mainstream">¥5k–1w</button>
+    <button class="flt" data-b="pro">¥1w–2w</button>
+    <button class="flt" data-b="flagship">&gt;¥2w</button>
+  </div>
+
+  <!-- 产品卡片 -->
+  <div id="consGrid"></div>
+
+  <!-- 对比表 -->
+  <div class="block">
+    <div class="sec-ttl"><h2>⚖️ 消费级 AI 算力速查表</h2><span class="ln"></span></div>
+    <div class="table-scroll"><div id="consCompare"></div></div>
+    <p class="footnote">注：价格为 2026-09 电商参考价，随促销波动；NPU TOPS 不可直接跨架构比较（x86/ARM/独显口径不同）。</p>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

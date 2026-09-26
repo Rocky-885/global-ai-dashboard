@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据说明 · 全球 AI 产业链监控</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="about">
+
+<header class="topbar">
+  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="meta"><span id="lastUpdated">数据加载中…</span>
+    <button id="refreshBtn">↻ 刷新</button></div>
+</header>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="nav-item" href="index.html">首页</a>
+    <a class="nav-item" href="macro.html">宏观市场</a>
+    <a class="nav-item" href="hardware.html">AI 硬件</a>
+    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+    <a class="nav-item" href="models.html">AI 模型</a>
+    <a class="nav-item" href="software.html">AI 软件云</a>
+    <a class="nav-item" href="chain.html">产业链</a>
+    <a class="nav-item is-active" href="about.html">数据说明</a>
+    <span class="nav-live" id="navLive"></span>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<main class="container">
+
+  <div class="summary"><span class="badge">关于本看板</span>
+    <span>面向金融与科技关注者的全球 AI 产业链每日监控，覆盖宏观利率、AI 硬件、AI 模型、软件云与产业链全景。</span></div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📐 方法论</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>宏观指标</b>：美国/日本/德国·欧元区 GDP、10Y 国债收益率（US10Y/JP10Y/DE10Y）、核心股指（纳指100/标普500/日经225/欧洲斯托克50）。</li>
+      <li><b>时间序列</b>：近一月曲线由种子数据（反向随机游走，末点对齐最新真实快照）与每日真实报告合并生成；自首个真实报告日期起为抓取值。</li>
+      <li><b>个股</b>：11 只 AI 软硬件龙头，含最新股价、涨跌幅与近一月走势。</li>
+      <li><b>产品/模型库</b>：按品类/厂商结构化整理，综合官方披露、GTC/Computex 2026 发布与公开评测。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>📚 数据来源</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>宏观 GDP</b>：<a href="https://www.stats.gov.cn/" target="_blank" rel="noopener">中国国家统计局 ↗</a>、<a href="https://www.bea.gov/" target="_blank" rel="noopener">美国经济分析局 BEA ↗</a>、<a href="https://www.esri.cao.go.jp/index.shtml" target="_blank" rel="noopener">日本内阁府 ↗</a>、<a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener">欧盟统计局 Eurostat ↗</a> / <a href="https://www.destatis.de/" target="_blank" rel="noopener">德国联邦统计局 ↗</a>；宏观表格中逐行标注来源与发布季度，点击可直接打开对应官方机构。</li>
+      <li><b>国债收益率与股指</b>：交易所收盘数据，行情参考<a href="https://finance.sina.com.cn/" target="_blank" rel="noopener">新浪财经 ↗</a>、<a href="https://cn.investing.com/" target="_blank" rel="noopener">英为财情（Investing.com）↗</a>；US10Y/JP10Y/DE10Y/CN10Y 及五大股指的名称与卡片均可点击直达对应行情页（CN10Y 官方口径见 <a href="https://www.chinabond.com.cn/" target="_blank" rel="noopener">中国债券信息网 ↗</a>）。</li>
+      <li><b>个股行情</b>：<a href="https://finance.sina.com.cn/" target="_blank" rel="noopener">新浪财经 ↗</a> / <a href="https://cn.investing.com/" target="_blank" rel="noopener">Investing.com ↗</a> / 公司 IR；新闻与产品卡中的证券代码可点击查看行情（A 股/港股 → <a href="https://xueqiu.com/" target="_blank" rel="noopener">雪球 ↗</a>，美股 → 新浪美股）。</li>
+      <li><b>新闻动态</b>：每条新闻下方的「来源」均为可点击链接（<a href="https://www.reuters.com/technology/" target="_blank" rel="noopener">Reuters ↗</a> / <a href="https://www.bloomberg.com/technology" target="_blank" rel="noopener">Bloomberg ↗</a> / 官方 IR / <a href="https://finance.sina.com.cn/" target="_blank" rel="noopener">新浪科技 ↗</a> / <a href="https://semiengineering.com/" target="_blank" rel="noopener">Semiconductor Engineering ↗</a> 等），点击即可阅读原文或进入检索页。</li>
+      <li><b>硬件产品库 / 模型库 / 消费硬件库</b>：厂商官方发布（NVIDIA GTC / 台积电技术论坛 / Computex / 各家发布会）、官方 IR 披露与公开评测整理；每张产品/模型卡片底部均有「🔗 信息来源 / 了解更多 ↗」按钮，可直达厂商官网、发布页或行情页。</li>
+      <li><b>首页终端风</b>：首页为深色「监测终端」风格（理工科向）：SIGNAL MATRIX 信号矩阵、派生利差（中美/日美/德美，按 CN10Y−US10Y 等公式计算）、CN MACRO 中国宏观补充条（USDCNY/LPR/MLF/M2/社融，为最新官方标准值参考，每日定时任务可覆盖更新）、带能量条的个股榜。</li>
+      <li><b>语音播报</b>：首页「🔊 播报今日」按钮（含右下角悬浮按钮）与每条新闻的 🔊 小按钮，基于浏览器 Web Speech API 本地合成（zh-CN），点击播报、再次点击停止，不需要联网。</li>
+      <li><b>每日抓取链路</b>：定时任务（每日 09:00）→ WebSearch 过去 24h 增量 → 报告 JSON（<code>ai_daily_report_*.json</code>）+ 新闻/产品/模型库追加 → 看板自动并入。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>🔄 更新频率</h2><span class="ln"></span></div>
+    <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
+      <li><b>每日 09:00（北京时间）</b>：定时任务检索过去 24 小时经营动态、宏观与市场数据，生成报告 JSON 并自动并入看板曲线。</li>
+      <li><b>页面每 60 秒</b>：本地服务模式下自动轮询 <code>/api/data</code> 刷新；点击右上角「↻ 刷新」按钮可<b>立即手动更新</b>（按钮会显示刷新结果与时间）；双击打开（file://）则使用内嵌数据快照。</li>
+      <li><b>业务线新闻</b>：每日定时任务将 AI 硬件发布、AI 模型进展的增量追加至数据库，栏目自动生长。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="sec-ttl"><h2>⚠️ 免责声明</h2><span class="ln"></span></div>
+    <p style="font-size:13px;line-height:1.8;color:#64748b;margin:0;">
+      本看板为研究与信息整理用途，所有数据综合自公开来源，部分近一月序列为演示种子、部分产品/模型参数为公开披露整理，不构成投资建议。
+      真实行情与公告请以交易所、公司 IR 与权威财经媒体为准。如发现数据偏差，欢迎反馈以便校准。
+    </p>
+  </div>
+
+  <div class="footnote" id="dataNote"></div>
+</main>
+
+<script src="assets/echarts.min.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
