@@ -24,7 +24,7 @@ function esc(s) { return (s == null ? '' : '' + s).replace(/[&<>"]/g, c => ({ '&
 function tagCls(tag) { return 'news-tag ' + (TAG_CLASS[tag] || 't-def'); }
 
 /* ---------- 信息来源超链接 ---------- */
-// 宏观指标 → 行情/官方数据来源页
+// 宏观指标 → 行情/官方数据来源页（金融数据优先新浪财经/英为财情等专业行情源）
 const MACRO_LINKS = {
   US10Y: 'https://cn.investing.com/rates-bonds/u.s.-10-year-bond-yield',
   JP10Y: 'https://cn.investing.com/rates-bonds/japan-10-year-bond-yield',
@@ -36,6 +36,13 @@ const MACRO_LINKS = {
   STOXX50: 'https://cn.investing.com/indices/eu-stoxx50',
   CSI300: 'https://finance.sina.com.cn/realstock/company/sh000300/nc.shtml'
 };
+// 金融行情备用搜索：优先新浪财经（A股/港股/美股/基金），兜底百度
+function financeSearch(q) {
+  return 'https://finance.sina.com.cn/search/?q=' + encodeURIComponent(q);
+}
+function baiduSearch(q) {
+  return 'https://www.baidu.com/s?wd=' + encodeURIComponent(q);
+}
 // GDP 数据来源（按地区 → 官方统计机构）
 const GDP_LINKS = {
   '中国': 'https://www.stats.gov.cn/',
@@ -81,6 +88,54 @@ const VENDOR_LINKS = {
   '百度': 'https://qianfan.cloud.baidu.com/',
   '字节跳动': 'https://team.doubao.com/'
 };
+
+// 电商来源（消费者级硬件价格 → 京东/亚马逊；企业级组件无零售价 → 厂商官网）
+const ECOMMERCE_LINKS = {
+  jd: 'https://search.jd.com/Search?keyword=',
+  amazon: 'https://www.amazon.com/s?k=',
+  amazon_cn: 'https://www.amazon.cn/s?k='
+};
+// 国内/国外厂商官网域名提示（用于企业硬件「信息来源」路由）
+const VENDOR_SITE_HINTS = {
+  'NVIDIA': 'https://www.nvidia.com/',
+  'AMD': 'https://www.amd.com/',
+  'Intel': 'https://www.intel.com/',
+  'Micron': 'https://www.micron.com/',
+  'Samsung': 'https://www.samsung.com/',
+  'SK hynix': 'https://www.skhynix.com/',
+  'SK海力士': 'https://www.skhynix.com/',
+  'SK 海力士': 'https://www.skhynix.com/',
+  'TSMC': 'https://www.tsmc.com/',
+  '台积电': 'https://www.tsmc.com/',
+  'ASML': 'https://www.asml.com/',
+  'Broadcom': 'https://www.broadcom.com/',
+  'Cadence': 'https://www.cadence.com/',
+  'Apple': 'https://www.apple.com/',
+  'Microsoft': 'https://www.microsoft.com/',
+  'Amazon': 'https://www.amazon.com/',
+  'Google': 'https://about.google/',
+  'Meta': 'https://about.meta.com/',
+  'Sony': 'https://www.sony.com/',
+  'Tesla': 'https://www.tesla.com/',
+  '华为': 'https://www.huawei.com/cn/',
+  '寒武纪': 'https://www.cambricon.com/',
+  '海光信息': 'https://www.hygon.cn/',
+  '壁仞科技': 'https://www.birentech.com/',
+  '摩尔线程': 'https://www.mthreads.com/',
+  '燧原科技': 'https://www.enflame-tech.com/',
+  '地平线': 'https://www.horizon.cc/',
+  '黑芝麻智能': 'https://www.blacksesame.com.cn/',
+  '阿里平头哥': 'https://www.t-head.cn/',
+  '联发科 MediaTek': 'https://www.mediatek.com/',
+  '环球晶圆 GlobalWafers': 'https://www.globalwafers.com/',
+  '长鑫存储（CXMT）': 'https://www.cxmt.com/',
+  '长江存储（YMTC）': 'https://www.ymtc.com/',
+  '兆易创新': 'https://www.gigadevice.com/',
+  '北京君正（ISSI）': 'https://www.ingentic.com/',
+  '铠侠 Kioxia': 'https://www.kioxia.com/',
+  '华邦电 Winbond': 'https://www.winbond.com/'
+};
+
 function googleSearch(q) { return 'https://www.google.com/search?q=' + encodeURIComponent(q); }
 function googleNews(q) { return 'https://news.google.com/search?q=' + encodeURIComponent(q) + '&hl=zh-CN&gl=CN'; }
 // 证券代码 → 行情页（A股/港股用雪球，日韩台用 Yahoo Finance，美股用新浪）
@@ -98,6 +153,62 @@ function tickerLink(tk) {
   if (/^[A-Z][A-Z0-9.\-]{0,9}$/.test(first)) return 'https://stock.finance.sina.com.cn/usstock/quotes/' + first + '.html';
   return null;
 }
+
+// 判断产品是否为「消费者级可购买」硬件（有价格字段/价格档位）→ 路由电商
+function isConsumerProduct(p) {
+  return !!(p && (p.price || p.price_num || p.band || p.price_band));
+}
+// 判断厂商是否为中国厂商（用于电商路由：国内→京东，海外→亚马逊）
+function isCNVendor(name) {
+  const cn = ['华为', '小米', '联想', '荣耀', 'OPPO', 'vivo', '魅族', '一加', '华硕', '微星',
+    '机械革命', '雷神', '神舟', '七彩虹', '影驰', '摩尔线程', '寒武纪', '海光', '壁仞', '燧原',
+    '平头哥', '长江存储', '长鑫', '兆易', '中芯', '华虹', '北方华创', '中微', '盛美', '龙芯', '兆芯'];
+  const nm = ('' + (name || '')).toLowerCase();
+  return cn.some(c => nm.includes(c.toLowerCase()));
+}
+
+// 智能来源路由：按数据类别判断最优来源（不偷懒、不随意兜底）
+// type: 'price' 消费者硬件价格 | 'product' 企业硬件/组件 | 'model' AI模型 | 'macro' 金融指标
+function smartSource(item, type, opts) {
+  opts = opts || {};
+  if (item && item.source_url) return { url: item.source_url, kind: '直链', label: '官方来源' };
+  const name = (item && (item.name || item.vendor)) || '';
+  const query = (item && item.vendor ? item.vendor + ' ' : '') + name;
+  switch (type) {
+    case 'price': {
+      // 消费者硬件：国内厂商→京东，海外厂商→亚马逊；均附电商名
+      if (isCNVendor(item.vendor) || isCNVendor(item.name)) {
+        return { url: ECOMMERCE_LINKS.jd + encodeURIComponent(query), kind: '电商', label: '京东' };
+      }
+      return { url: ECOMMERCE_LINKS.amazon + encodeURIComponent(query), kind: '电商', label: '亚马逊' };
+    }
+    case 'product': {
+      // 企业级组件：优先厂商官网；否则百度检索（中文语境更可靠）
+      const vh = VENDOR_SITE_HINTS[item.vendor] || VENDOR_SITE_HINTS[item.name];
+      if (vh) return { url: vh, kind: '官网', label: item.vendor || '厂商官网' };
+      return { url: baiduSearch(query + ' 官网'), kind: '搜索', label: '百度' };
+    }
+    case 'model': {
+      const vl = VENDOR_LINKS[item.vendor] || VENDOR_LINKS[item.name];
+      if (vl) return { url: vl, kind: '官网', label: item.vendor || '厂商官网' };
+      return { url: baiduSearch(query + ' 模型 发布'), kind: '搜索', label: '百度' };
+    }
+    case 'macro': {
+      // 金融指标：优先精确行情源，否则新浪财经检索
+      const ml = MACRO_LINKS[item.key];
+      if (ml) return { url: ml, kind: '行情', label: '新浪财经 / 英为财情' };
+      return { url: financeSearch(item.label || query), kind: '行情', label: '新浪财经' };
+    }
+    default:
+      return { url: baiduSearch(query), kind: '搜索', label: '百度' };
+  }
+}
+// 来源徽标 HTML（kind 区分图标/配色）
+function sourceBadge(s) {
+  if (!s || !s.url) return '';
+  const icon = { '电商': '🛒', '官网': '🏢', '行情': '📈', '搜索': '🔍', '直链': '🔗' }[s.kind] || '🔗';
+  return `<span class="src-badge src-${s.kind}">${icon} ${esc(s.label)}</span>`;
+}
 // 新闻来源 → 链接（优先 source_url 字段，其次关键词官网，兜底 Google News 检索）
 function newsSourceLink(n) {
   if (n.source_url) return n.source_url;
@@ -105,9 +216,24 @@ function newsSourceLink(n) {
   for (const [kw, url] of SOURCE_HINTS) if (s.includes(kw)) return url;
   return googleNews((n.org || '') + ' ' + (n.title || ''));
 }
-// 通用「了解更多」：优先自带 source_url，其次代码行情页，最后搜索引擎
-function moreLink(item, fallbackQuery) {
-  return item.source_url || tickerLink(item.ticker) || googleSearch(fallbackQuery);
+// 通用「了解更多」：优先自带 source_url，其次代码行情页，最后按类别智能路由
+function moreLink(item, type, fallbackQuery) {
+  if (item.source_url) return item.source_url;
+  const tk = tickerLink(item.ticker);
+  if (tk) return tk;
+  const s = smartSource(item, type);
+  return s ? s.url : baiduSearch(fallbackQuery || (item.vendor + ' ' + item.name));
+}
+// 返回 {url, kind, label} 形式的来源（供徽标展示）
+function moreSource(item, type, fallbackQuery) {
+  if (item.source_url) return { url: item.source_url, kind: '直链', label: '官方来源' };
+  const tk = tickerLink(item.ticker);
+  if (tk) return { url: tk, kind: '行情', label: item.ticker };
+  return smartSource(item, type) || { url: baiduSearch(fallbackQuery), kind: '搜索', label: '百度' };
+}
+// GDP 来源链接（官方统计机构优先，兜底百度）
+function gdpLink(region) {
+  return GDP_LINKS[region] || baiduSearch(region + ' 最新GDP 官方');
 }
 
 /* ---------- 语音播报（Web Speech API） ---------- */
@@ -150,7 +276,9 @@ function bindVoiceBrief(getText) {
 
 /* ---------- 图表基础 ---------- */
 function baseLineOpt(dates, series, yName, dark) {
-  const axis = dark ? '#5b6b7e' : C.muted;
+  const themeDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (dark === undefined) dark = themeDark;
+  const axis = dark ? '#8194ab' : C.muted;
   const grid = dark ? '#1b2738' : '#f0f2f5';
   const tick = dark ? '#33425a' : C.grid;
   return {
@@ -185,6 +313,40 @@ function makeChart(id, opt) {
   const c = echarts.init(el);
   c.setOption(opt);
   charts[id] = c;
+}
+
+/* ---------- 周期切换（近一月/近一季/近一年） ---------- */
+// 周期 -> 保留的交易日数
+const PERIOD_DAYS = { '1m': 22, '3m': 66, '1y': 252 };
+const periodState = {};  // scope -> '1m' | '3m' | '1y'
+
+// 按周期对 dates / series(含 .values 数组) 做截断，返回 {dates, series}
+function sliceByPeriod(dates, series, period) {
+  const n = PERIOD_DAYS[period] || dates.length;
+  const keep = Math.min(n, dates.length);
+  const slicedDates = dates.slice(dates.length - keep);
+  const slicedSeries = series.map(s => {
+    const c = Object.assign({}, s);
+    c.values = (s.values || []).slice(Math.max(0, s.values.length - keep));
+    return c;
+  });
+  return { dates: slicedDates, series: slicedSeries };
+}
+
+// 绑定某 scope 下的周期切换按钮
+function bindPeriodSwitch(scope, onSwitch) {
+  const wrap = document.querySelector(`.period-switch[data-scope="${scope}"]`);
+  if (!wrap) return;
+  periodState[scope] = periodState[scope] || '1m';
+  wrap.querySelectorAll('.pd-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = btn.dataset.p;
+      if (!p || p === periodState[scope]) return;
+      periodState[scope] = p;
+      wrap.querySelectorAll('.pd-btn').forEach(b => b.classList.toggle('active', b === btn));
+      onSwitch(p);
+    });
+  });
 }
 
 /* ---------- 数据获取 ---------- */
@@ -425,18 +587,25 @@ function renderHomeMacro(data) {
   if (gEl) {
     let h = '<table><thead><tr><th>国家/地区</th><th>最新 GDP 增速</th><th>数据来源 / 发布季度</th></tr></thead><tbody>';
     (data.gdp_rows || []).forEach(r => {
-      const gUrl = GDP_LINKS[r.region] || googleSearch(r.region + ' 最新GDP 官方');
+      const gUrl = gdpLink(r.region);
       h += `<tr><td><b>${esc(r.region)}</b></td><td>${esc(r.gdp)}</td><td>${r.source
         ? `<a class="src-link" href="${gUrl}" target="_blank" rel="noopener" title="打开官方统计机构 ↗">${esc(r.source)} ↗</a>` : '—'}</td></tr>`;
     });
     h += '</tbody></table>';
     gEl.innerHTML = h;
   }
-  // 迷你走势图（首页·新浪浅色配色）
-  makeChart('yieldChartHome', baseLineOpt(data.dates,
-    data.macro.yields.map((s, i) => lineSerie(s.label, s.values, C.palette[i % C.palette.length], i === 0)), '%', false));
-  makeChart('indexChartHome', baseLineOpt(data.dates,
-    data.macro.indices.map((s, i) => lineSerie(s.label, s.values, C.palette[i % C.palette.length], i === 0)), '收盘', false));
+  // 迷你走势图（首页·新浪浅色配色）—— 支持周期切换
+  const drawHome = () => {
+    const p = periodState['home'] || '1m';
+    const y = sliceByPeriod(data.dates, data.macro.yields, p);
+    const x = sliceByPeriod(data.dates, data.macro.indices, p);
+    makeChart('yieldChartHome', baseLineOpt(y.dates,
+      y.series.map((s, i) => lineSerie(s.label, s.values, C.palette[i % C.palette.length], i === 0)), '%', false));
+    makeChart('indexChartHome', baseLineOpt(x.dates,
+      x.series.map((s, i) => lineSerie(s.label, s.values, C.palette[i % C.palette.length], i === 0)), '收盘', false));
+  };
+  drawHome();
+  bindPeriodSwitch('home', drawHome);
 }
 
 /* ============ 宏观市场 ============ */
@@ -446,23 +615,35 @@ function renderMacro(data) {
   if (gEl) {
     let h = '<table><thead><tr><th>国家/地区</th><th>最新 GDP 增速</th><th>数据来源 / 发布季度</th></tr></thead><tbody>';
     (data.gdp_rows || []).forEach(r => {
-      const gUrl = GDP_LINKS[r.region] || googleSearch(r.region + ' 最新GDP 官方');
+      const gUrl = gdpLink(r.region);
       h += `<tr><td><b>${esc(r.region)}</b></td><td>${esc(r.gdp)}</td><td>${r.source
         ? `<a class="src-link" href="${gUrl}" target="_blank" rel="noopener" title="打开官方统计机构 ↗">${esc(r.source)} ↗</a>` : '—'}</td></tr>`;
     });
     h += '</tbody></table>';
     gEl.innerHTML = h;
   }
-  // 收益率 / 股指 走势
-  makeChart('yieldChart', baseLineOpt(data.dates,
-    data.macro.yields.map((s, i) => lineSerie(s.label, s.values, C.palette[i % C.palette.length], i === 0)), '%'));
-  makeChart('indexChart', baseLineOpt(data.dates,
-    data.macro.indices.map((s, i) => lineSerie(s.label, s.values, C.palette[i % C.palette.length], i === 0)), '收盘'));
+  // 收益率 / 股指 走势 —— 支持周期切换
+  const drawYield = () => {
+    const p = periodState['macro-yield'] || '1m';
+    const s = sliceByPeriod(data.dates, data.macro.yields, p);
+    makeChart('yieldChart', baseLineOpt(s.dates,
+      s.series.map((x, i) => lineSerie(x.label, x.values, C.palette[i % C.palette.length], i === 0)), '%'));
+  };
+  const drawIndex = () => {
+    const p = periodState['macro-index'] || '1m';
+    const s = sliceByPeriod(data.dates, data.macro.indices, p);
+    makeChart('indexChart', baseLineOpt(s.dates,
+      s.series.map((x, i) => lineSerie(x.label, x.values, C.palette[i % C.palette.length], i === 0)), '收盘'));
+  };
+  drawYield();
+  drawIndex();
+  bindPeriodSwitch('macro-yield', drawYield);
+  bindPeriodSwitch('macro-index', drawIndex);
 
   // 收益率 + 股指 表
   const tEl = document.getElementById('macroTable');
   if (tEl) {
-    let h = '<table><thead><tr><th>指标</th><th>最新值</th><th>今日涨跌</th><th>近一月走势</th></tr></thead><tbody>';
+    let h = '<table><thead><tr><th>指标</th><th>最新值</th><th>今日涨跌</th><th>近一月涨跌</th></tr></thead><tbody>';
     [...data.macro.yields, ...data.macro.indices].forEach(s => {
       const mUrl = MACRO_LINKS[s.key];
       h += `<tr><td>${mUrl
@@ -497,7 +678,8 @@ function renderHardwareGrid() {
         `<tr><td class="sp-k">${esc(k)}</td><td class="sp-v">${esc(v)}</td></tr>`).join('');
       const hl = (p.tech_highlights || []).map(x => `<li>${esc(x)}</li>`).join('');
       const tkUrl = p.ticker ? tickerLink(p.ticker) : null;
-      const more = moreLink(p, p.vendor + ' ' + p.name + ' 发布 官方');
+      const src = moreSource(p, 'product', p.vendor + ' ' + p.name + ' 发布 官方');
+      const more = src.url;
       const tkHTML = p.ticker ? (tkUrl
         ? `<a class="pc-tk" href="${tkUrl}" target="_blank" rel="noopener" title="查看行情 ↗">${esc(p.ticker)} ↗</a>`
         : `<span class="pc-tk">${esc(p.ticker)}</span>`) : '';
@@ -510,7 +692,7 @@ function renderHardwareGrid() {
           <table class="spec"><tbody>${specs}</tbody></table>
           ${hl ? `<div class="pc-hl-title">科技特点</div><ul class="pc-hl">${hl}</ul>` : ''}
           ${p.positioning ? `<div class="pc-pos"><b>定位：</b>${esc(p.positioning)}</div>` : ''}
-          ${more ? `<a class="pc-more" href="${more}" target="_blank" rel="noopener" title="打开信息来源 ↗">🔗 信息来源 / 了解更多 ↗</a>` : ''}
+          ${more ? `<a class="pc-more" href="${more}" target="_blank" rel="noopener" title="打开信息来源 ↗">🔗 信息来源 / 了解更多 ↗</a>${sourceBadge(src)}` : ''}
         </div>
       </div>`;
     }).join('');
@@ -575,7 +757,8 @@ function renderModels(data) {
   if (grid) {
     grid.innerHTML = (md.models || []).map(m => {
       const hl = (m.highlights || []).map(x => `<li>${esc(x)}</li>`).join('');
-      const more = m.source_url || VENDOR_LINKS[m.vendor] || googleSearch(m.vendor + ' ' + m.name + ' 模型 发布');
+      const src = moreSource(m, 'model', m.vendor + ' ' + m.name + ' 模型 发布');
+      const more = src.url;
       return `<div class="model-card">
         <div class="mc-head">
           <div><span class="mc-vendor">${esc(m.vendor)}</span><h4 class="mc-name">${esc(m.name)}</h4></div>
@@ -594,7 +777,7 @@ function renderModels(data) {
         ${m.benchmarks ? `<div class="mc-bench"><b>基准：</b>${esc(m.benchmarks)}</div>` : ''}
         <div class="mc-foot">
           <div class="mc-date">发布：${esc(m.date || '—')}</div>
-          ${more ? `<a class="pc-more mc-more" href="${more}" target="_blank" rel="noopener" title="打开信息来源 ↗">🔗 信息来源 / 了解更多 ↗</a>` : ''}
+          ${more ? `<a class="pc-more mc-more" href="${more}" target="_blank" rel="noopener" title="打开信息来源 ↗">🔗 信息来源 / 了解更多 ↗</a>${sourceBadge(src)}` : ''}
         </div>
       </div>`;
     }).join('');
@@ -632,11 +815,12 @@ function renderSoftware(data) {
     grid.innerHTML = sw.map(c => {
       const prods = (c.products || []).map(x => `<li>${esc(x)}</li>`).join('');
       const latest = (c.latest || []).map(x => `<li>${esc(x)}</li>`).join('');
-      const cUrl = c.url || tickerLink(c.ticker) || googleSearch(c.name + ' 公司官网');
+      const cSrc = moreSource({ name: c.name, vendor: c.name, ticker: c.ticker }, 'product', c.name + ' 公司官网');
+      const cUrl = c.url || tickerLink(c.ticker) || cSrc.url;
       return `<div class="sw-card">
         <div class="sw-head">${cUrl
           ? `<a class="sw-tk" href="${cUrl}" target="_blank" rel="noopener" title="打开官网 / 行情 ↗">${esc(c.ticker)} ↗</a>`
-          : `<span class="sw-tk">${esc(c.ticker)}</span>`}<h3 class="sw-name">${esc(c.name)}</h3></div>
+          : `<span class="sw-tk">${esc(c.ticker)}</span>`}<h3 class="sw-name">${esc(c.name)}</h3>${sourceBadge(cSrc)}</div>
         <div class="sw-role">${esc(c.role)}</div>
         <div class="sw-strategy"><b>战略：</b>${esc(c.strategy)}</div>
         <div class="sw-block"><div class="sw-bt">核心产品</div><ul>${prods}</ul></div>
@@ -684,7 +868,8 @@ function renderConsumerGrid() {
       const specs = Object.entries(p.specs || {}).map(([k, v]) =>
         `<tr><td class="sp-k">${esc(k)}</td><td class="sp-v">${esc(v)}</td></tr>`).join('');
       const feats = (p.ai_features || []).map(x => `<li>${esc(x)}</li>`).join('');
-      const more = moreLink(p, p.vendor + ' ' + p.name + ' 官网');
+      const src = moreSource(p, 'price', p.vendor + ' ' + p.name + ' 价格');
+      const more = src.url;
       return `<div class="prod-card cons-card">
         <div class="pc-head">
           <div><span class="pc-vendor">${esc(p.vendor)}</span><h4 class="pc-name">${esc(p.name)}</h4></div>
@@ -701,7 +886,7 @@ function renderConsumerGrid() {
           <table class="spec"><tbody>${specs}</tbody></table>
           ${feats ? `<div class="pc-hl-title">AI 特性</div><ul class="pc-hl">${feats}</ul>` : ''}
           <div class="cons-value"><b>💡 点评：</b>${esc(p.value_note || '')}</div>
-          ${more ? `<a class="pc-more" href="${more}" target="_blank" rel="noopener" title="打开产品页 / 信息来源 ↗">🔗 信息来源 / 了解更多 ↗</a>` : ''}
+          ${more ? `<a class="pc-more" href="${more}" target="_blank" rel="noopener" title="打开产品页 / 信息来源 ↗">🔗 价格查询 / 购买 ↗</a>${sourceBadge(src)}` : ''}
         </div>
       </div>`;
     }).join('');
@@ -865,6 +1050,30 @@ if (consFilters) {
     renderConsumerGrid();
   });
 }
+
+/* ============ 主题切换 + 移动导航 ============ */
+(function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const burger = document.getElementById('hamburger');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    if (toggle) toggle.textContent = t === 'dark' ? '🌙' : '☀️';
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#0d1219' : '#f4f6fa');
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('gaix-theme'); } catch (e) {}
+  applyTheme(saved || 'dark');
+  if (toggle) toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('gaix-theme', next); } catch (e) {}
+  });
+  if (burger) burger.addEventListener('click', () => document.body.classList.toggle('nav-open'));
+  document.querySelectorAll('.nav-menu .nav-item').forEach(a =>
+    a.addEventListener('click', () => document.body.classList.remove('nav-open')));
+})();
 
 refresh();
 setInterval(refresh, REFRESH_MS);

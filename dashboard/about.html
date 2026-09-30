@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<meta property="og:title" content="数据说明 · 全球 AI 产业链监控">
+<meta property="og:type" content="website">
+<meta property="og:description" content="全球 AI 产业链与宏观每日监控看板">
+<meta name="theme-color" content="#0d1219">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>数据说明 · 全球 AI 产业链监控</title>
+<meta name="description" content="全球 AI 产业链 &amp; 宏观每日监控：覆盖中国(含中国台湾)/美国/日本/韩国/欧洲的 AI 软硬件龙头、10Y 收益率、股指与 GDP，数据可溯源、可播报。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="about">
 
 <header class="topbar">
-  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="brand"><span class="logo-mark">🌐</span> 全球 AI 产业链监控 <b>AI Watch</b></div>
   <div class="meta"><span id="lastUpdated">数据加载中…</span>
-    <button id="refreshBtn">↻ 刷新</button></div>
+    <button id="refreshBtn">↻ 刷新</button>
+    <button class="theme-toggle" id="themeToggle" title="切换深色 / 浅色">🌓</button>
+    <button class="hamburger" id="hamburger" aria-label="菜单">☰</button></div>
 </header>
 
 <nav class="navbar">
   <div class="nav-inner">
-    <a class="nav-item" href="index.html">首页</a>
-    <a class="nav-item" href="macro.html">宏观市场</a>
-    <a class="nav-item" href="hardware.html">AI 硬件</a>
-    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
-    <a class="nav-item" href="models.html">AI 模型</a>
-    <a class="nav-item" href="software.html">AI 软件云</a>
-    <a class="nav-item" href="chain.html">产业链</a>
-    <a class="nav-item is-active" href="about.html">数据说明</a>
-    <span class="nav-live" id="navLive"></span>
+    <div class="nav-menu" id="navMenu">
+      <a class="nav-item" href="index.html">首页</a>
+      <a class="nav-item" href="macro.html">宏观市场</a>
+      <a class="nav-item" href="hardware.html">AI 硬件</a>
+      <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+      <a class="nav-item" href="models.html">AI 模型</a>
+      <a class="nav-item" href="software.html">AI 软件云</a>
+      <a class="nav-item" href="chain.html">产业链</a>
+      <a class="nav-item is-active" href="about.html">数据说明</a>
+    </div>
+    <div class="nav-actions">
+      <span class="nav-live" id="navLive"></span>
+    </div>
   </div>
 </nav>
-
 <div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
 
 <main class="container">
@@ -39,8 +50,8 @@
     <div class="sec-ttl"><h2>📐 方法论</h2><span class="ln"></span></div>
     <ul style="font-size:13.5px;line-height:1.9;color:#3f4a58;margin:0;padding-left:18px;">
       <li><b>宏观指标</b>：美国/日本/德国·欧元区 GDP、10Y 国债收益率（US10Y/JP10Y/DE10Y）、核心股指（纳指100/标普500/日经225/欧洲斯托克50）。</li>
-      <li><b>时间序列</b>：近一月曲线由种子数据（反向随机游走，末点对齐最新真实快照）与每日真实报告合并生成；自首个真实报告日期起为抓取值。</li>
-      <li><b>个股</b>：11 只 AI 软硬件龙头，含最新股价、涨跌幅与近一月走势。</li>
+      <li><b>时间序列</b>：曲线由约一年（250 个交易日）的种子数据（反向随机游走，末点对齐最新真实快照）与每日真实报告合并生成，支持「近一月 / 近一季 / 近一年」三档切换；自首个真实报告日期起为抓取值。</li>
+      <li><b>个股</b>：11 只 AI 软硬件龙头，含最新股价、涨跌幅与区间走势。</li>
       <li><b>产品/模型库</b>：按品类/厂商结构化整理，综合官方披露、GTC/Computex 2026 发布与公开评测。</li>
     </ul>
   </div>
@@ -52,7 +63,7 @@
       <li><b>国债收益率与股指</b>：交易所收盘数据，行情参考<a href="https://finance.sina.com.cn/" target="_blank" rel="noopener">新浪财经 ↗</a>、<a href="https://cn.investing.com/" target="_blank" rel="noopener">英为财情（Investing.com）↗</a>；US10Y/JP10Y/DE10Y/CN10Y 及五大股指的名称与卡片均可点击直达对应行情页（CN10Y 官方口径见 <a href="https://www.chinabond.com.cn/" target="_blank" rel="noopener">中国债券信息网 ↗</a>）。</li>
       <li><b>个股行情</b>：<a href="https://finance.sina.com.cn/" target="_blank" rel="noopener">新浪财经 ↗</a> / <a href="https://cn.investing.com/" target="_blank" rel="noopener">Investing.com ↗</a> / 公司 IR；新闻与产品卡中的证券代码可点击查看行情（A 股/港股 → <a href="https://xueqiu.com/" target="_blank" rel="noopener">雪球 ↗</a>，美股 → 新浪美股）。</li>
       <li><b>新闻动态</b>：每条新闻下方的「来源」均为可点击链接（<a href="https://www.reuters.com/technology/" target="_blank" rel="noopener">Reuters ↗</a> / <a href="https://www.bloomberg.com/technology" target="_blank" rel="noopener">Bloomberg ↗</a> / 官方 IR / <a href="https://finance.sina.com.cn/" target="_blank" rel="noopener">新浪科技 ↗</a> / <a href="https://semiengineering.com/" target="_blank" rel="noopener">Semiconductor Engineering ↗</a> 等），点击即可阅读原文或进入检索页。</li>
-      <li><b>硬件产品库 / 模型库 / 消费硬件库</b>：厂商官方发布（NVIDIA GTC / 台积电技术论坛 / Computex / 各家发布会）、官方 IR 披露与公开评测整理；每张产品/模型卡片底部均有「🔗 信息来源 / 了解更多 ↗」按钮，可直达厂商官网、发布页或行情页。</li>
+      <li><b>硬件产品库 / 模型库 / 消费硬件库</b>：厂商官方发布（NVIDIA GTC / 台积电技术论坛 / Computex / 各家发布会）、官方 IR 披露与公开评测整理。来源按数据类别智能路由：<b>消费硬件价格</b> → <a href="https://www.jd.com/" target="_blank" rel="noopener">京东 ↗</a> / <a href="https://www.amazon.com/" target="_blank" rel="noopener">亚马逊 ↗</a> 电商比价；<b>企业级硬件/组件</b> → 厂商官网；<b>AI 模型</b> → 厂商发布页；<b>金融指标</b> → 新浪财经 / 英为财情行情页；每张卡片底部均带来源类型徽标（🛒电商 / 🏢官网 / 📈行情 / 🔍搜索）。</li>
       <li><b>首页终端风</b>：首页为深色「监测终端」风格（理工科向）：SIGNAL MATRIX 信号矩阵、派生利差（中美/日美/德美，按 CN10Y−US10Y 等公式计算）、CN MACRO 中国宏观补充条（USDCNY/LPR/MLF/M2/社融，为最新官方标准值参考，每日定时任务可覆盖更新）、带能量条的个股榜。</li>
       <li><b>语音播报</b>：首页「🔊 播报今日」按钮（含右下角悬浮按钮）与每条新闻的 🔊 小按钮，基于浏览器 Web Speech API 本地合成（zh-CN），点击播报、再次点击停止，不需要联网。</li>
       <li><b>每日抓取链路</b>：定时任务（每日 09:00）→ WebSearch 过去 24h 增量 → 报告 JSON（<code>ai_daily_report_*.json</code>）+ 新闻/产品/模型库追加 → 看板自动并入。</li>
@@ -71,7 +82,7 @@
   <div class="block">
     <div class="sec-ttl"><h2>⚠️ 免责声明</h2><span class="ln"></span></div>
     <p style="font-size:13px;line-height:1.8;color:#64748b;margin:0;">
-      本看板为研究与信息整理用途，所有数据综合自公开来源，部分近一月序列为演示种子、部分产品/模型参数为公开披露整理，不构成投资建议。
+      本看板为研究与信息整理用途，所有数据综合自公开来源，部分历史序列为演示种子、部分产品/模型参数为公开披露整理，不构成投资建议。
       真实行情与公告请以交易所、公司 IR 与权威财经媒体为准。如发现数据偏差，欢迎反馈以便校准。
     </p>
   </div>

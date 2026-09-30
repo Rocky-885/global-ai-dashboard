@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""生成近一月种子时序数据 seed.json。
-末点 = 2026-09-25 真实抓取快照值；此前通过反向随机游走(确定性)回溯约 30 天，
-用于在没有真实历史累积前即可展示"近一月走势曲线"。真实每日报告会覆盖/扩展对应日期。
+"""生成种子时序数据 seed.json（约一年，250 个交易日）。
+末点 = 2026-09-25 真实抓取快照值；此前通过反向随机游走(确定性)回溯约 250 个交易日，
+用于在没有真实历史累积前即可展示"近一月 / 近一季 / 近一年"三档走势曲线。
+真实每日报告会覆盖/扩展对应日期。前端按周期(1m/3m/1y)对 dates/values 截断渲染。
 """
 import json, random, datetime as dt
 
 END_DATE = dt.date(2026, 9, 25)
-N = 30  # 含今天共 30 天
+N = 250  # 约一年（250 个交易日）
 
 # 末点真实快照（来自 ai_daily_report_2026-09-25.json）
 SNAPSHOT = {
@@ -37,7 +38,17 @@ SNAPSHOT = {
 
 rng = random.Random(20260925)
 
-dates = [(END_DATE - dt.timedelta(days=N - 1 - i)).isoformat() for i in range(N)]
+# 回溯 N 个交易日（跳过周末），末点为 END_DATE
+def trading_dates(end, n):
+    out = []
+    d = end
+    while len(out) < n:
+        if d.weekday() < 5:  # 周一~周五
+            out.append(d)
+        d -= dt.timedelta(days=1)
+    return out[::-1]
+
+dates = [d.isoformat() for d in trading_dates(END_DATE, N)]
 
 series = {}
 for key, cfg in SNAPSHOT.items():

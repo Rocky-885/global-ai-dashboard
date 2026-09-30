@@ -265,8 +265,8 @@ def build_payload():
         "chain": chain,
         "china_macro": china_macro,
         "consumer": load_json(CONS_PATH, {"updated": "", "summary": "", "price_bands": [], "min_spec_advice": [], "categories": [], "products": []}),
-        "data_note": ("近一月曲线含演示种子数据（%s ~ %s），自 %s 起为真实抓取值；"
-                      "后续每日定时任务产出的报告将自动并入并延伸曲线。"
+        "data_note": ("曲线含约一年演示种子数据（%s ~ %s），自 %s 起为真实抓取值；"
+                      "支持近一月/近一季/近一年三档切换，后续每日定时任务产出的报告将自动并入并延伸曲线。"
                       % (dates[0], seed["end_date"], seed["end_date"])),
     }
 

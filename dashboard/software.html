@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="UTF-8">
+<meta property="og:title" content="AI 软件与云 · 全球 AI 产业链监控">
+<meta property="og:type" content="website">
+<meta property="og:description" content="全球 AI 产业链与宏观每日监控看板">
+<meta name="theme-color" content="#0d1219">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 软件与云服务 · 全球 AI 产业链监控</title>
+<title>AI 软件与云 · 全球 AI 产业链监控</title>
+<meta name="description" content="全球 AI 产业链 &amp; 宏观每日监控：覆盖中国(含中国台湾)/美国/日本/韩国/欧洲的 AI 软硬件龙头、10Y 收益率、股指与 GDP，数据可溯源、可播报。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="software">
 
 <header class="topbar">
-  <div class="brand">🌐 全球 AI 产业链监控<b>AI Watch</b></div>
+  <div class="brand"><span class="logo-mark">🌐</span> 全球 AI 产业链监控 <b>AI Watch</b></div>
   <div class="meta"><span id="lastUpdated">数据加载中…</span>
-    <button id="refreshBtn">↻ 刷新</button></div>
+    <button id="refreshBtn">↻ 刷新</button>
+    <button class="theme-toggle" id="themeToggle" title="切换深色 / 浅色">🌓</button>
+    <button class="hamburger" id="hamburger" aria-label="菜单">☰</button></div>
 </header>
 
 <nav class="navbar">
   <div class="nav-inner">
-    <a class="nav-item" href="index.html">首页</a>
-    <a class="nav-item" href="macro.html">宏观市场</a>
-    <a class="nav-item" href="hardware.html">AI 硬件</a>
-    <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
-    <a class="nav-item" href="models.html">AI 模型</a>
-    <a class="nav-item is-active" href="software.html">AI 软件云</a>
-    <a class="nav-item" href="chain.html">产业链</a>
-    <a class="nav-item" href="about.html">数据说明</a>
-    <span class="nav-live" id="navLive"></span>
+    <div class="nav-menu" id="navMenu">
+      <a class="nav-item" href="index.html">首页</a>
+      <a class="nav-item" href="macro.html">宏观市场</a>
+      <a class="nav-item" href="hardware.html">AI 硬件</a>
+      <a class="nav-item" href="consumer.html">消费 AI 硬件</a>
+      <a class="nav-item" href="models.html">AI 模型</a>
+      <a class="nav-item is-active" href="software.html">AI 软件云</a>
+      <a class="nav-item" href="chain.html">产业链</a>
+      <a class="nav-item" href="about.html">数据说明</a>
+    </div>
+    <div class="nav-actions">
+      <span class="nav-live" id="navLive"></span>
+    </div>
   </div>
 </nav>
-
 <div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
 
 <main class="container">
