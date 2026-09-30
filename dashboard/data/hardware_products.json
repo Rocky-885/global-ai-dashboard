@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-26",
+  "updated": "2026-09-30",
   "summary": "面向金融与科技关注者的 AI 硬件产品数据库：按算力芯片、存储、设备EDA、代工、互联超节点、先进封装、果链与电子制造服务七大品类整理主要产品的技术参数、科技特点与定位，并标注所属国家/地区（中国 / 美国 / 日本 / 韩国 / 中国台湾 / 荷兰），可按地区筛选扫描。数据综合自各家官方披露、GTC/Computex/云栖/华为全联接等发布会与产业链公开报道，仅供研究参考。",
   "categories": [
     {
@@ -219,8 +219,8 @@
           "country": "中国",
           "vendor": "华为",
           "name": "昇腾 960 超节点",
-          "status": "已发布 / 规模部署中",
-          "date": "2026-09-15",
+          "status": "960DT 提前至 2027Q1 / 960PR 2027Q3；Atlas 960 液冷 2027Q3",
+          "date": "2026-09-30",
           "specs": {
             "规模": "4,096 卡超节点",
             "算力": "8 EFLOPS（FP8）",
@@ -230,7 +230,8 @@
           "tech_highlights": [
             "超节点 Scale-up 架构，单域 4,096 卡全互联",
             "全栈自主（芯片/框架/算子/CANN），规避外部限制",
-            "面向盘古大模型与行业 AI 落地"
+            "面向盘古大模型与行业 AI 落地",
+            "960DT 由原计划 2027Q4 提前至 2027Q1 就绪（较原计划提前三个季度）"
           ],
           "positioning": "国产自主算力底座，主攻政企与关键行业大模型。",
           "ticker": "—（未上市）"
@@ -447,7 +448,6 @@
           "specs": {
             "制程": "TSMC A16（背面供电 Super Power Rail，跳过标准 2nm）",
             "定位": "Rubin 之后的下一代旗舰 GPU",
-
             "互联": "NVLink 7（规划）"
           },
           "tech_highlights": [
@@ -456,6 +456,28 @@
             "面向 2028 年前后十万亿参数 agentic AI 训练/推理"
           ],
           "positioning": "NVIDIA 在 Rubin 之后的代际储备，巩固 AI 算力路线领先。",
+          "ticker": "NVDA"
+        },
+        {
+          "id": "nvidia_rubin_ultra",
+          "country": "美国",
+          "vendor": "NVIDIA",
+          "name": "Rubin Ultra（双芯重构版）",
+          "status": "2027 H2 目标；最终规格 2026 H2 验证后确定",
+          "date": "2026-09-30",
+          "specs": {
+            "架构": "由 4 计算芯片改为双计算芯片（reticle/翘曲约束）",
+            "HBM": "8×HBM4E 约 384GB（原计划 16×HBM4E 约 1TB）",
+            "备选配置": "评估 HBM4E 8hi / HBM4 12hi / HBM4 8hi",
+            "封装": "CoWoS-L",
+            "机架": "NVL576（Rubin Ultra 世代）"
+          },
+          "tech_highlights": [
+            "因 TSMC CoWoS-L 基板翘曲、reticle 限制与良率问题，由 4 芯 16 组 HBM4E（约 1TB）重构为双芯 8 组 HBM4E（约 384GB）",
+            "HBM 供应紧张下已测试至少 3 个版本，或采用低配 HBM4 12hi/8hi",
+            "UBS：单芯片内存减少但出货芯片更多，2027 年总 HBM 消耗可能反升"
+          ],
+          "positioning": "NVIDIA 2027 年旗舰机架级 AI 平台；先进封装良率反向决定芯片架构取舍的典型样本。",
           "ticker": "NVDA"
         }
       ]
@@ -469,20 +491,20 @@
           "id": "samsung_hbm4",
           "country": "韩国",
           "vendor": "Samsung",
-          "name": "HBM4 / HBM4E",
-          "status": "2027 产量拟翻倍",
-          "date": "2026-09-18",
+          "name": "HBM4",
+          "status": "2027 年产量拟至少翻倍",
+          "date": "2026-09-30",
           "specs": {
-            "代际": "HBM4（2026）/ HBM4E（2027）",
-            "带宽": "较 HBM3e 提升约 1.5–2×",
-            "堆叠": "16-Hi / 更高层数"
+            "产能目标": "2027 年 HBM4 系列产量至少翻倍",
+            "月产能规划": "2026 年末约 25 万片晶圆（HBM）",
+            "DRAM 占比": "HBM 明年或占 DRAM 产能近 30%"
           },
           "tech_highlights": [
-            "采用混合键合（hybrid bonding）提升 I/O 密度",
-            "与自家 DRAM 产能协同，争夺 NVIDIA 认证份额",
-            "2027 年 HBM 总产能规划翻倍以匹配 Rubin 放量"
+            "2027 年 HBM4 产量拟至少翻倍，与 SK 海力士/美光瓜分高端订单",
+            "HBM4 良率爬坡仍需迭代验证",
+            "演示 1TB CXL 内存池，布局 CXL 近存计算"
           ],
-          "positioning": "HBM 三强之一，瞄准高端 AI 内存供给缺口。",
+          "positioning": "存储三巨头之一，HBM4 竞赛主要参与者。",
           "ticker": "005930.KS"
         },
         {
@@ -660,6 +682,28 @@
           ],
           "positioning": "中国台湾利基存储代表。",
           "ticker": "2344.TW"
+        },
+        {
+          "id": "micron_hbm4",
+          "country": "美国",
+          "vendor": "Micron",
+          "name": "HBM4 / HBM4E",
+          "status": "HBM4 高量产 / HBM4E 2027 量产",
+          "date": "2026-09-30",
+          "specs": {
+            "容量": "HBM4 12-Hi 起",
+            "单颗价格": "约 560 美元（2026 供货谈判价，12 层）",
+            "每 die bank": "256（HBM3E 的 2 倍）",
+            "客户": "已对主要 AI GPU 客户高量产",
+            "战略协议": "16 份，14 份含约 1,000 亿美元最低累计收入"
+          },
+          "tech_highlights": [
+            "HBM4 已对主要客户进入高量产，HBM4E 计划 2027 量产",
+            "HBM 毛利率 30%–40%，远高于传统 DRAM（<15%）",
+            "FY26Q4 指引营收 500 亿美元、非 GAAP 毛利率约 86%"
+          ],
+          "positioning": "AI GPU/ASIC 关键配套；HBM 已成整颗 AI 芯片最贵、最卡脖子部件。",
+          "ticker": "MU"
         }
       ]
     },
@@ -901,6 +945,27 @@
           ],
           "positioning": "中国台湾半导体材料龙头。",
           "ticker": "6488.TW"
+        },
+        {
+          "id": "globalwafers_300mm",
+          "country": "中国台湾",
+          "vendor": "环球晶圆 GlobalWafers",
+          "name": "300mm（12 吋）硅晶圆",
+          "status": "满产 / 2027 长约涨价谈判中",
+          "date": "2026-09-30",
+          "specs": {
+            "8月营收": "NT$47.6 亿（+7.63% YoY）",
+            "8月获利": "NT$7.04 亿（+144.98% YoY）",
+            "供需": "全球 12 吋月需求约 1,000–1,100 万片，有效供给 <1,000 万片",
+            "缺口": "约 150 万片/月"
+          },
+          "tech_highlights": [
+            "AI/存储扩产带动 12 吋订单，2027 新一轮长约涨价成形",
+            "高端轻掺片/外延片紧缺或持续至 2028",
+            "意大利 Novara 厂火灾后恢复快于预期，12 吋持续满载"
+          ],
+          "positioning": "AI 与存储扩产的上游基础材料，硅晶圆结构性供给缺口受益者。",
+          "ticker": "6488.TW"
         }
       ]
     },
@@ -1025,6 +1090,27 @@
           ],
           "positioning": "中国台湾成熟制程代工主力。",
           "ticker": "2303.TW"
+        },
+        {
+          "id": "tsmc_a16",
+          "country": "中国台湾",
+          "vendor": "TSMC",
+          "name": "A16（1.6nm 级，背面供电 Super Power Rail）",
+          "status": "2026 Q4 计划量产",
+          "date": "2026-09-30",
+          "specs": {
+            "节点": "A16（1.6nm 级，2nm 以下）",
+            "供电": "背面供电 Super Power Rail",
+            "首发客户": "NVIDIA 下一代 Feynman GPU（跳过标准 2nm）",
+            "配套": "CoWoS / 3DFabric / COUPE 共封装光引擎"
+          },
+          "tech_highlights": [
+            "先进路线图首次一分为二：移动端（N2U/A13/A12）与 AI/HPC（A16）双轨",
+            "A16 完成背面供电验证、计划 Q4 量产",
+            "2026 资本支出上调至 600–640 亿美元，收入增长预期超 40%"
+          ],
+          "positioning": "面向 AI/HPC 的先进制程与背面供电平台。",
+          "ticker": "TSM"
         }
       ]
     },

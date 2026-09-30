@@ -1,7 +1,57 @@
 {
-  "updated": "2026-09-26",
+  "updated": "2026-09-30",
   "note": "本栏目为「AI 硬件发布与技术进展」「AI 模型发布与最近进展」两条业务线的每日增量存档，由每日定时任务追加。条目字段：date / tag / title / detail / source，可选 ticker、org。",
   "hardware": [
+    {
+      "date": "2026-09-30",
+      "tag": "存储",
+      "country": "美国",
+      "org": "Micron 美光",
+      "title": "美光 HBM4 进入高量产，FY26Q4 指引营收 500 亿美元、毛利率约 86%",
+      "detail": "美光 FQ4（截至 8/31）财报 9/30 盘后发布：公司指引营收 500 亿美元（±10 亿）、非 GAAP 毛利率约 86%、EPS 约 31 美元，市场共识略高（约 515 亿 / 31.6）。HBM4 已对主要客户进入高量产，HBM4E 计划 2027 量产；已签 16 份战略供货协议（14 份含约 1,000 亿美元最低累计收入），FQ3 营收 414.6 亿美元（环比 +74%、同比 +346%）。",
+      "source": "Micron / IG / 财联社",
+      "ticker": "MU"
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "芯片架构",
+      "country": "美国",
+      "org": "NVIDIA",
+      "title": "NVIDIA Rubin Ultra 由 4 芯重构为双芯，HBM 配置降档至约 384GB",
+      "detail": "受 TSMC CoWoS-L 基板翘曲、reticle 限制与良率问题，Rubin Ultra 由原定 4 计算芯片 + 16 组 HBM4E（约 1TB）改为双计算芯片 + 8 组 HBM4E（约 384GB），并评估 HBM4 12hi/8hi 低配版本，最终规格 2026 H2 验证后确定。标准版 Vera Rubin NVL72 未降配、已交付数十家客户。",
+      "source": "TrendForce / UBS / 尧图 AI 芯片简报",
+      "ticker": "NVDA"
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "算力涨价",
+      "country": "中国",
+      "org": "华为 / 寒武纪",
+      "title": "HBM 成本推动国产算力涨价：昇腾 950DT 突破 25 万元、寒武纪 690 重新定价",
+      "detail": "受 HBM 供应紧张与灰色渠道溢价推动，华为将昇腾 950DT 上限价提至 25 万元以上（较两月前涨 20%–50%）；昇腾 910PR 由约 6 万升至 8 万+、910C 由约 9 万升至 11 万+。寒武纪对下一代 690 芯片重新定价（较两月前高 20%–30%）；天数智芯向字节跳动 GPU 出货翻倍至约 10 万片。",
+      "source": "Bloomberg / Semalt / 21 世纪经济报道",
+      "ticker": "688256.SH"
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "代工",
+      "country": "中国台湾",
+      "org": "台积电 TSMC",
+      "title": "台积电传评估赴美德州设厂，2026 资本支出上看 640 亿美元",
+      "detail": "市场传台积电正评估在美国德州投资设厂（亚利桑那之外新增计划，尚未定案），德州已有三星 Taylor 厂、德州仪器 300mm 产能及环球晶圆 Sherman 12 吋厂等聚落。公司 2026 资本支出上看 640 亿美元（600–640 亿，高于原指引 520–560 亿），70%–80% 投先进制程；亚利桑那整体规划投资最高 2,650 亿美元。",
+      "source": "钜亨网 / 优分析 / 台湾新闻",
+      "ticker": "TSM"
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "材料",
+      "country": "中国台湾",
+      "org": "环球晶圆 GlobalWafers",
+      "title": "环球晶圆 8 月获利同比 +145%，12 吋硅片供需缺口延续",
+      "detail": "环球晶圆 8 月营收 NT$47.6 亿（+7.63% YoY）、获利 NT$7.04 亿（+144.98% YoY）；全球 12 吋硅片月需求约 1,000–1,100 万片、有效供给低于 1,000 万片，供需缺口约 150 万片/月，高端轻掺片/外延片紧缺或持续至 2028。公司正就 2027 年长约展开新一轮涨价谈判，意大利 Novara 厂火灾后恢复快于预期。",
+      "source": "台湾新闻 / CTEE / 矽源特",
+      "ticker": "6488.TW"
+    },
     {
       "date": "2026-09-26",
       "tag": "代工路线",
@@ -266,6 +316,36 @@
     }
   ],
   "model": [
+    {
+      "date": "2026-09-30",
+      "tag": "模型发布",
+      "country": "美国",
+      "org": "OpenAI",
+      "title": "OpenAI 发布 GPT-6.1 Sol，AA 智能指数仅落后 GPT-6 Astra 1 分",
+      "detail": "GPT-6.1 Sol 在 Artificial Analysis Intelligence Index v4.3.2 得 52 分（max 推理），仅落后旗舰 GPT-6 Astra（53）1 分，较 GPT-6 Sol（48）数日内提升 4 分；定价 $2/$10 每百万 in/out，为 Astra（$10/$50）的 1/5，缓存输入价砍半至 $0.10。已在 ChatGPT Work 与 Codex 面向 Plus/Pro/Business/Enterprise/Edu 开放。",
+      "source": "OfficeChai / Artificial Analysis",
+      "ticker": "MSFT"
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "智能体",
+      "country": "美国",
+      "org": "Meta",
+      "title": "Meta Muse Spark 1.3 与 OpenAI Dots 智能体竞逐，AA 指数达 48",
+      "detail": "Meta Muse Spark 1.3 在 Artificial Analysis Intelligence Index（max）得 48，与 GPT-6 Sol 并列；多模态榜得分 56.5。OpenAI 同期推出常驻型 Dots 智能体（跨应用执行用户目标），直接对标 Meta Muse，智能体能力成为前沿实验室新战场。",
+      "source": "Artificial Analysis / Invezz / LMSpeed",
+      "ticker": "META"
+    },
+    {
+      "date": "2026-09-30",
+      "tag": "国产算力",
+      "country": "中国",
+      "org": "智谱 Zhipu",
+      "title": "智谱 GLM-5.3-Flash 由国产算力支撑，端到端性能提升 3 倍",
+      "detail": "智谱 GLM-5.3-Flash 公开服务已由国产算力支撑，端到端服务性能较同一硬件基线提升 3 倍；GLM-5.3（max）在 AA 指数得 45，与阿里 Qwen3.8 Max 持平。马斯克称中国大模型单位算力产出性能几乎全球顶尖，预计 2–3 年内可补齐算力缺口。",
+      "source": "搜狐财经 / 中信证券",
+      "ticker": "—"
+    },
     {
       "date": "2026-09-26",
       "tag": "基准更新",
